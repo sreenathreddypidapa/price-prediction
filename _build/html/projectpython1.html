@@ -1,0 +1,2164 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Mobile Price Range Prediction &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'projectpython1';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="&lt;no title&gt;" href="mobileprice.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="My sample book - Home"/>
+    <img src="_static/logo.png" class="logo__image only-dark pst-js-only" alt="My sample book - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to my Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="resume.html">Resume</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Mobile Price Range Prediction</a></li>
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fprojectpython1.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/projectpython1.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Mobile Price Range Prediction</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Mobile Price Range Prediction</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#experiment-5">Experiment 5</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="mobile-price-range-prediction">
+<h1>Mobile Price Range Prediction<a class="headerlink" href="#mobile-price-range-prediction" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import required libraries</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">sqlite3</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span><span class="p">,</span> <span class="n">cross_val_score</span><span class="p">,</span> <span class="n">StratifiedKFold</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span><span class="p">,</span> <span class="n">MinMaxScaler</span><span class="p">,</span> <span class="n">FunctionTransformer</span>
+<span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="kn">import</span> <span class="n">Pipeline</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span><span class="p">,</span> <span class="n">RidgeClassifier</span>
+<span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestClassifier</span><span class="p">,</span> <span class="n">StackingClassifier</span><span class="p">,</span> <span class="n">GradientBoostingClassifier</span>
+<span class="kn">from</span> <span class="nn">xgboost</span> <span class="kn">import</span> <span class="n">XGBClassifier</span>
+<span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">PCA</span>
+<span class="kn">from</span> <span class="nn">sklearn.feature_selection</span> <span class="kn">import</span> <span class="n">VarianceThreshold</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">f1_score</span><span class="p">,</span> <span class="n">confusion_matrix</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">joblib</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">tempfile</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Step 1: Load and Normalize Data (3NF)</span>
+<span class="c1"># ----------------------------</span>
+<span class="n">train_path</span> <span class="o">=</span> <span class="s2">&quot;train.csv&quot;</span>
+<span class="n">train_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">train_path</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">4</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Step 1: Load and Normalize Data (3NF)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="c1"># ----------------------------</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">train_path</span> <span class="o">=</span> <span class="s2">&quot;train.csv&quot;</span>
+<span class="ne">----&gt; </span><span class="mi">4</span> <span class="n">train_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">train_path</span><span class="p">)</span>
+
+<span class="nn">File /opt/anaconda3/lib/python3.12/site-packages/pandas/io/parsers/readers.py:1026,</span> in <span class="ni">read_csv</span><span class="nt">(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, skipfooter, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, date_format, dayfirst, cache_dates, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, doublequote, escapechar, comment, encoding, encoding_errors, dialect, on_bad_lines, delim_whitespace, low_memory, memory_map, float_precision, storage_options, dtype_backend)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1013</span> <span class="n">kwds_defaults</span> <span class="o">=</span> <span class="n">_refine_defaults_read</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1014</span>     <span class="n">dialect</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1015</span>     <span class="n">delimiter</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1022</span>     <span class="n">dtype_backend</span><span class="o">=</span><span class="n">dtype_backend</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1023</span> <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1024</span> <span class="n">kwds</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">kwds_defaults</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">1026</span> <span class="k">return</span> <span class="n">_read</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="n">kwds</span><span class="p">)</span>
+
+<span class="nn">File /opt/anaconda3/lib/python3.12/site-packages/pandas/io/parsers/readers.py:620,</span> in <span class="ni">_read</span><span class="nt">(filepath_or_buffer, kwds)</span>
+<span class="g g-Whitespace">    </span><span class="mi">617</span> <span class="n">_validate_names</span><span class="p">(</span><span class="n">kwds</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;names&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span>
+<span class="g g-Whitespace">    </span><span class="mi">619</span> <span class="c1"># Create the parser.</span>
+<span class="ne">--&gt; </span><span class="mi">620</span> <span class="n">parser</span> <span class="o">=</span> <span class="n">TextFileReader</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">622</span> <span class="k">if</span> <span class="n">chunksize</span> <span class="ow">or</span> <span class="n">iterator</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">623</span>     <span class="k">return</span> <span class="n">parser</span>
+
+<span class="nn">File /opt/anaconda3/lib/python3.12/site-packages/pandas/io/parsers/readers.py:1620,</span> in <span class="ni">TextFileReader.__init__</span><span class="nt">(self, f, engine, **kwds)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1617</span>     <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwds</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span>
+<span class="g g-Whitespace">   </span><span class="mi">1619</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span><span class="p">:</span> <span class="n">IOHandles</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="ne">-&gt; </span><span class="mi">1620</span> <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_engine</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="p">)</span>
+
+<span class="nn">File /opt/anaconda3/lib/python3.12/site-packages/pandas/io/parsers/readers.py:1880,</span> in <span class="ni">TextFileReader._make_engine</span><span class="nt">(self, f, engine)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1878</span>     <span class="k">if</span> <span class="s2">&quot;b&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">mode</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1879</span>         <span class="n">mode</span> <span class="o">+=</span> <span class="s2">&quot;b&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">1880</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span> <span class="o">=</span> <span class="n">get_handle</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1881</span>     <span class="n">f</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1882</span>     <span class="n">mode</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1883</span>     <span class="n">encoding</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;encoding&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1884</span>     <span class="n">compression</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;compression&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1885</span>     <span class="n">memory_map</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;memory_map&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1886</span>     <span class="n">is_text</span><span class="o">=</span><span class="n">is_text</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1887</span>     <span class="n">errors</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;encoding_errors&quot;</span><span class="p">,</span> <span class="s2">&quot;strict&quot;</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1888</span>     <span class="n">storage_options</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;storage_options&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1889</span> <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1890</span> <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+<span class="g g-Whitespace">   </span><span class="mi">1891</span> <span class="n">f</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span><span class="o">.</span><span class="n">handle</span>
+
+<span class="nn">File /opt/anaconda3/lib/python3.12/site-packages/pandas/io/common.py:873,</span> in <span class="ni">get_handle</span><span class="nt">(path_or_buf, mode, encoding, compression, memory_map, is_text, errors, storage_options)</span>
+<span class="g g-Whitespace">    </span><span class="mi">868</span> <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">869</span>     <span class="c1"># Check whether the filename is to be opened in binary mode.</span>
+<span class="g g-Whitespace">    </span><span class="mi">870</span>     <span class="c1"># Binary mode does not support &#39;encoding&#39; and &#39;newline&#39;.</span>
+<span class="g g-Whitespace">    </span><span class="mi">871</span>     <span class="k">if</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">encoding</span> <span class="ow">and</span> <span class="s2">&quot;b&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">872</span>         <span class="c1"># Encoding</span>
+<span class="ne">--&gt; </span><span class="mi">873</span>         <span class="n">handle</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">874</span>             <span class="n">handle</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">875</span>             <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">876</span>             <span class="n">encoding</span><span class="o">=</span><span class="n">ioargs</span><span class="o">.</span><span class="n">encoding</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">877</span>             <span class="n">errors</span><span class="o">=</span><span class="n">errors</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">878</span>             <span class="n">newline</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">879</span>         <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">880</span>     <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">881</span>         <span class="c1"># Binary mode</span>
+<span class="g g-Whitespace">    </span><span class="mi">882</span>         <span class="n">handle</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">)</span>
+
+<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;train.csv&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create SQLite connection</span>
+<span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s1">&#39;mobile_specs.db&#39;</span><span class="p">)</span>
+<span class="n">cursor</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+
+<span class="c1"># Drop existing tables if they exist</span>
+<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;DROP TABLE IF EXISTS Mobile;&quot;</span><span class="p">)</span>
+<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;DROP TABLE IF EXISTS Features;&quot;</span><span class="p">)</span>
+<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;DROP TABLE IF EXISTS Camera;&quot;</span><span class="p">)</span>
+<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;DROP TABLE IF EXISTS Display;&quot;</span><span class="p">)</span>
+<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;DROP TABLE IF EXISTS Processor;&quot;</span><span class="p">)</span>
+<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;DROP TABLE IF EXISTS Price;&quot;</span><span class="p">)</span>
+
+<span class="c1"># Create Mobile table</span>
+<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">CREATE TABLE Mobile (</span>
+<span class="s2">    id INTEGER PRIMARY KEY,</span>
+<span class="s2">    battery_power INTEGER,</span>
+<span class="s2">    clock_speed REAL,</span>
+<span class="s2">    m_dep REAL,</span>
+<span class="s2">    mobile_wt INTEGER,</span>
+<span class="s2">    ram INTEGER,</span>
+<span class="s2">    int_memory INTEGER,</span>
+<span class="s2">    talk_time INTEGER</span>
+<span class="s2">);</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
+
+<span class="c1"># Create Features table</span>
+<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">CREATE TABLE Features (</span>
+<span class="s2">    id INTEGER PRIMARY KEY,</span>
+<span class="s2">    blue INTEGER,</span>
+<span class="s2">    dual_sim INTEGER,</span>
+<span class="s2">    four_g INTEGER,</span>
+<span class="s2">    three_g INTEGER,</span>
+<span class="s2">    touch_screen INTEGER,</span>
+<span class="s2">    int_memory INTEGER,</span>
+<span class="s2">    wifi INTEGER,</span>
+<span class="s2">    FOREIGN KEY (id) REFERENCES Mobile (id)</span>
+<span class="s2">);</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
+
+<span class="c1"># Create Camera table</span>
+<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">CREATE TABLE Camera (</span>
+<span class="s2">    id INTEGER PRIMARY KEY,</span>
+<span class="s2">    fc INTEGER,</span>
+<span class="s2">    pc INTEGER,</span>
+<span class="s2">    sc_h INTEGER,</span>
+<span class="s2">    sc_w INTEGER,</span>
+<span class="s2">    FOREIGN KEY (id) REFERENCES Mobile (id)</span>
+<span class="s2">);</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
+
+<span class="c1"># Create Display table</span>
+<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">CREATE TABLE Display (</span>
+<span class="s2">    id INTEGER PRIMARY KEY,</span>
+<span class="s2">    px_height INTEGER,</span>
+<span class="s2">    px_width INTEGER,</span>
+<span class="s2">    FOREIGN KEY (id) REFERENCES Mobile (id)</span>
+<span class="s2">);</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
+
+<span class="c1"># Create Processor table</span>
+<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">CREATE TABLE Processor (</span>
+<span class="s2">    id INTEGER PRIMARY KEY,</span>
+<span class="s2">    n_cores INTEGER,</span>
+<span class="s2">    FOREIGN KEY (id) REFERENCES Mobile (id)</span>
+<span class="s2">);</span>
+<span class="s2">&quot;&quot;&quot;</span>
+<span class="p">)</span>
+
+<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">CREATE TABLE Price (</span>
+<span class="s2">    id INTEGER PRIMARY KEY,</span>
+<span class="s2">    price_range INTEGER,</span>
+<span class="s2">    FOREIGN KEY (id) REFERENCES Mobile (id)</span>
+<span class="s2">);</span>
+<span class="s2">&quot;&quot;&quot;</span>
+<span class="p">)</span>
+
+<span class="c1"># Commit the table creation</span>
+<span class="n">conn</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+
+<span class="c1"># Populate the tables using your dataset (assuming `df` is the loaded dataset)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">train_data</span>
+
+<span class="c1"># Mobile Table</span>
+<span class="n">mobile_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;battery_power&#39;</span><span class="p">,</span> <span class="s1">&#39;clock_speed&#39;</span><span class="p">,</span> <span class="s1">&#39;m_dep&#39;</span><span class="p">,</span> <span class="s1">&#39;mobile_wt&#39;</span><span class="p">,</span> <span class="s1">&#39;ram&#39;</span><span class="p">,</span> <span class="s1">&#39;int_memory&#39;</span><span class="p">,</span> <span class="s1">&#39;talk_time&#39;</span><span class="p">]</span>
+<span class="n">df</span><span class="p">[</span><span class="n">mobile_cols</span><span class="p">]</span><span class="o">.</span><span class="n">to_sql</span><span class="p">(</span><span class="s1">&#39;Mobile&#39;</span><span class="p">,</span> <span class="n">conn</span><span class="p">,</span> <span class="n">if_exists</span><span class="o">=</span><span class="s1">&#39;append&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="c1"># Features Table</span>
+<span class="n">features_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="s1">&#39;dual_sim&#39;</span><span class="p">,</span> <span class="s1">&#39;four_g&#39;</span><span class="p">,</span> <span class="s1">&#39;three_g&#39;</span><span class="p">,</span> <span class="s1">&#39;touch_screen&#39;</span><span class="p">,</span> <span class="s1">&#39;wifi&#39;</span><span class="p">]</span>
+<span class="n">df</span><span class="p">[</span><span class="n">features_cols</span><span class="p">]</span><span class="o">.</span><span class="n">to_sql</span><span class="p">(</span><span class="s1">&#39;Features&#39;</span><span class="p">,</span> <span class="n">conn</span><span class="p">,</span> <span class="n">if_exists</span><span class="o">=</span><span class="s1">&#39;append&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="c1"># Camera Table</span>
+<span class="n">camera_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;fc&#39;</span><span class="p">,</span> <span class="s1">&#39;pc&#39;</span><span class="p">,</span> <span class="s1">&#39;sc_h&#39;</span><span class="p">,</span> <span class="s1">&#39;sc_w&#39;</span><span class="p">]</span>
+<span class="n">df</span><span class="p">[</span><span class="n">camera_cols</span><span class="p">]</span><span class="o">.</span><span class="n">to_sql</span><span class="p">(</span><span class="s1">&#39;Camera&#39;</span><span class="p">,</span> <span class="n">conn</span><span class="p">,</span> <span class="n">if_exists</span><span class="o">=</span><span class="s1">&#39;append&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="c1"># Display Table</span>
+<span class="n">display_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;px_height&#39;</span><span class="p">,</span> <span class="s1">&#39;px_width&#39;</span><span class="p">]</span>
+<span class="n">df</span><span class="p">[</span><span class="n">display_cols</span><span class="p">]</span><span class="o">.</span><span class="n">to_sql</span><span class="p">(</span><span class="s1">&#39;Display&#39;</span><span class="p">,</span> <span class="n">conn</span><span class="p">,</span> <span class="n">if_exists</span><span class="o">=</span><span class="s1">&#39;append&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="c1"># Processor Table</span>
+<span class="n">processor_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;n_cores&#39;</span><span class="p">]</span>
+<span class="n">df</span><span class="p">[</span><span class="n">processor_cols</span><span class="p">]</span><span class="o">.</span><span class="n">to_sql</span><span class="p">(</span><span class="s1">&#39;Processor&#39;</span><span class="p">,</span> <span class="n">conn</span><span class="p">,</span> <span class="n">if_exists</span><span class="o">=</span><span class="s1">&#39;append&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="c1"># Processor Table</span>
+<span class="n">price_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;price_range&#39;</span><span class="p">]</span>
+<span class="n">df</span><span class="p">[</span><span class="n">price_cols</span><span class="p">]</span><span class="o">.</span><span class="n">to_sql</span><span class="p">(</span><span class="s1">&#39;Price&#39;</span><span class="p">,</span> <span class="n">conn</span><span class="p">,</span> <span class="n">if_exists</span><span class="o">=</span><span class="s1">&#39;append&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="c1"># Verify tables</span>
+<span class="n">tables</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;SELECT name FROM sqlite_master WHERE type=&#39;table&#39;;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tables created:&quot;</span><span class="p">,</span> <span class="n">tables</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Tables created: [(&#39;Mobile&#39;,), (&#39;Features&#39;,), (&#39;Camera&#39;,), (&#39;Display&#39;,), (&#39;Processor&#39;,), (&#39;Price&#39;,)]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">SELECT </span>
+<span class="s2">    m.id, m.battery_power, m.clock_speed, m.m_dep, m.mobile_wt, m.ram, m.int_memory, m.talk_time,</span>
+<span class="s2">    f.blue, f.dual_sim, f.four_g, f.three_g, f.touch_screen, f.wifi,</span>
+<span class="s2">    c.fc, c.pc, c.sc_h, c.sc_w,</span>
+<span class="s2">    d.px_height, d.px_width,</span>
+<span class="s2">    p.n_cores,</span>
+<span class="s2">    pr.price_range</span>
+<span class="s2">FROM </span>
+<span class="s2">    Mobile m</span>
+<span class="s2">JOIN </span>
+<span class="s2">    Features f ON m.id = f.id</span>
+<span class="s2">JOIN </span>
+<span class="s2">    Camera c ON m.id = c.id</span>
+<span class="s2">JOIN </span>
+<span class="s2">    Display d ON m.id = d.id</span>
+<span class="s2">JOIN </span>
+<span class="s2">    Processor p ON m.id = p.id</span>
+<span class="s2">JOIN </span>
+<span class="s2">    Price pr ON m.id = pr.id</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="c1"># Load the data into a Pandas DataFrame</span>
+<span class="n">df_joined</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="n">conn</span><span class="p">)</span>
+
+<span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 2000 entries, 0 to 1999
+Data columns (total 22 columns):
+ #   Column         Non-Null Count  Dtype  
+---  ------         --------------  -----  
+ 0   id             2000 non-null   int64  
+ 1   battery_power  2000 non-null   int64  
+ 2   blue           2000 non-null   int64  
+ 3   clock_speed    2000 non-null   float64
+ 4   dual_sim       2000 non-null   int64  
+ 5   fc             2000 non-null   int64  
+ 6   four_g         2000 non-null   int64  
+ 7   int_memory     2000 non-null   int64  
+ 8   m_dep          2000 non-null   float64
+ 9   mobile_wt      2000 non-null   int64  
+ 10  n_cores        2000 non-null   int64  
+ 11  pc             2000 non-null   int64  
+ 12  px_height      2000 non-null   int64  
+ 13  px_width       2000 non-null   int64  
+ 14  ram            2000 non-null   int64  
+ 15  sc_h           2000 non-null   int64  
+ 16  sc_w           2000 non-null   int64  
+ 17  talk_time      2000 non-null   int64  
+ 18  three_g        2000 non-null   int64  
+ 19  touch_screen   2000 non-null   int64  
+ 20  wifi           2000 non-null   int64  
+ 21  price_range    2000 non-null   int64  
+dtypes: float64(2), int64(20)
+memory usage: 343.9 KB
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_joined</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 2000 entries, 0 to 1999
+Data columns (total 22 columns):
+ #   Column         Non-Null Count  Dtype  
+---  ------         --------------  -----  
+ 0   id             2000 non-null   int64  
+ 1   battery_power  2000 non-null   int64  
+ 2   clock_speed    2000 non-null   float64
+ 3   m_dep          2000 non-null   float64
+ 4   mobile_wt      2000 non-null   int64  
+ 5   ram            2000 non-null   int64  
+ 6   int_memory     2000 non-null   int64  
+ 7   talk_time      2000 non-null   int64  
+ 8   blue           2000 non-null   int64  
+ 9   dual_sim       2000 non-null   int64  
+ 10  four_g         2000 non-null   int64  
+ 11  three_g        2000 non-null   int64  
+ 12  touch_screen   2000 non-null   int64  
+ 13  wifi           2000 non-null   int64  
+ 14  fc             2000 non-null   int64  
+ 15  pc             2000 non-null   int64  
+ 16  sc_h           2000 non-null   int64  
+ 17  sc_w           2000 non-null   int64  
+ 18  px_height      2000 non-null   int64  
+ 19  px_width       2000 non-null   int64  
+ 20  n_cores        2000 non-null   int64  
+ 21  price_range    2000 non-null   int64  
+dtypes: float64(2), int64(20)
+memory usage: 343.9 KB
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">df_joined</span><span class="o">.</span><span class="n">describe</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                id  battery_power  clock_speed        m_dep    mobile_wt  \
+count  2000.000000    2000.000000  2000.000000  2000.000000  2000.000000   
+mean   1000.500000    1238.518500     1.522250     0.501750   140.249000   
+std     577.494589     439.418206     0.816004     0.288416    35.399655   
+min       1.000000     501.000000     0.500000     0.100000    80.000000   
+25%     500.750000     851.750000     0.700000     0.200000   109.000000   
+50%    1000.500000    1226.000000     1.500000     0.500000   141.000000   
+75%    1500.250000    1615.250000     2.200000     0.800000   170.000000   
+max    2000.000000    1998.000000     3.000000     1.000000   200.000000   
+
+               ram   int_memory    talk_time       blue     dual_sim  ...  \
+count  2000.000000  2000.000000  2000.000000  2000.0000  2000.000000  ...   
+mean   2124.213000    32.046500    11.011000     0.4950     0.509500  ...   
+std    1084.732044    18.145715     5.463955     0.5001     0.500035  ...   
+min     256.000000     2.000000     2.000000     0.0000     0.000000  ...   
+25%    1207.500000    16.000000     6.000000     0.0000     0.000000  ...   
+50%    2146.500000    32.000000    11.000000     0.0000     1.000000  ...   
+75%    3064.500000    48.000000    16.000000     1.0000     1.000000  ...   
+max    3998.000000    64.000000    20.000000     1.0000     1.000000  ...   
+
+       touch_screen         wifi           fc           pc         sc_h  \
+count   2000.000000  2000.000000  2000.000000  2000.000000  2000.000000   
+mean       0.503000     0.507000     4.309500     9.916500    12.306500   
+std        0.500116     0.500076     4.341444     6.064315     4.213245   
+min        0.000000     0.000000     0.000000     0.000000     5.000000   
+25%        0.000000     0.000000     1.000000     5.000000     9.000000   
+50%        1.000000     1.000000     3.000000    10.000000    12.000000   
+75%        1.000000     1.000000     7.000000    15.000000    16.000000   
+max        1.000000     1.000000    19.000000    20.000000    19.000000   
+
+              sc_w    px_height     px_width      n_cores  price_range  
+count  2000.000000  2000.000000  2000.000000  2000.000000  2000.000000  
+mean      5.767000   645.108000  1251.515500     4.520500     1.500000  
+std       4.356398   443.780811   432.199447     2.287837     1.118314  
+min       0.000000     0.000000   500.000000     1.000000     0.000000  
+25%       2.000000   282.750000   874.750000     3.000000     0.750000  
+50%       5.000000   564.000000  1247.000000     4.000000     1.500000  
+75%       9.000000   947.250000  1633.000000     7.000000     2.250000  
+max      18.000000  1960.000000  1998.000000     8.000000     3.000000  
+
+[8 rows x 22 columns]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Training Data Overview:&quot;</span><span class="p">)</span>
+
+<span class="c1"># Correlation matrix</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">df_joined</span><span class="o">.</span><span class="n">corr</span><span class="p">(),</span> <span class="n">annot</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;coolwarm&#39;</span><span class="p">,</span> <span class="n">linewidths</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Correlation Matrix of Features&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Training Data Overview:
+</pre></div>
+</div>
+<img alt="_images/51e5e16819e84175505fff01414ebe2a32191b4863cc54ffbfbbdad186fabf00.png" src="_images/51e5e16819e84175505fff01414ebe2a32191b4863cc54ffbfbbdad186fabf00.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_joined</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>id               2000
+battery_power    1094
+clock_speed        26
+m_dep              10
+mobile_wt         121
+ram              1562
+int_memory         63
+talk_time          19
+blue                2
+dual_sim            2
+four_g              2
+three_g             2
+touch_screen        2
+wifi                2
+fc                 20
+pc                 21
+sc_h               15
+sc_w               19
+px_height        1137
+px_width         1109
+n_cores             8
+price_range         4
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;price_range&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df_joined</span><span class="p">)</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Price vs Count&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;price range&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Count&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/c7ee94118f344b4eacba78ea585b76d4debc4f6d8f1279bef30ed8389605c732.png" src="_images/c7ee94118f344b4eacba78ea585b76d4debc4f6d8f1279bef30ed8389605c732.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">df_joined</span><span class="p">[</span><span class="s1">&#39;price_range&#39;</span><span class="p">]</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">df_joined</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;price_range&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">X_train</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1500, 21)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>  <span class="c1"># Adjust figure size as needed</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;price_range&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;ram&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df_joined</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Distribution of RAM for Each Price Range&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Price Range&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;RAM&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/bf4438d29de2501315d15c93af4a140081de13c760ab76a3f5c14f1975521456.png" src="_images/bf4438d29de2501315d15c93af4a140081de13c760ab76a3f5c14f1975521456.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">battery_by_price</span> <span class="o">=</span> <span class="n">df_joined</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;price_range&#39;</span><span class="p">)[</span><span class="s1">&#39;battery_power&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">battery_by_price</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;line&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;^&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Mean Battery Power vs. Price Range&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Price Range&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Mean Battery Power&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">battery_by_price</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/096d44b8cf32346ab29e3857f5d30d7d00cca9db61cefa0349b8883933ed8343.png" src="_images/096d44b8cf32346ab29e3857f5d30d7d00cca9db61cefa0349b8883933ed8343.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>mlflow
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: mlflow in /opt/anaconda3/lib/python3.12/site-packages (2.19.0)
+Requirement already satisfied: mlflow-skinny==2.19.0 in /opt/anaconda3/lib/python3.12/site-packages (from mlflow) (2.19.0)
+Requirement already satisfied: Flask&lt;4 in /opt/anaconda3/lib/python3.12/site-packages (from mlflow) (3.0.3)
+Requirement already satisfied: Jinja2&lt;4,&gt;=2.11 in /opt/anaconda3/lib/python3.12/site-packages (from mlflow) (3.1.4)
+Requirement already satisfied: alembic!=1.10.0,&lt;2 in /opt/anaconda3/lib/python3.12/site-packages (from mlflow) (1.14.0)
+Requirement already satisfied: docker&lt;8,&gt;=4.0.0 in /opt/anaconda3/lib/python3.12/site-packages (from mlflow) (7.1.0)
+Requirement already satisfied: graphene&lt;4 in /opt/anaconda3/lib/python3.12/site-packages (from mlflow) (3.4.3)
+Requirement already satisfied: gunicorn&lt;24 in /opt/anaconda3/lib/python3.12/site-packages (from mlflow) (23.0.0)
+Requirement already satisfied: markdown&lt;4,&gt;=3.3 in /opt/anaconda3/lib/python3.12/site-packages (from mlflow) (3.4.1)
+Requirement already satisfied: matplotlib&lt;4 in /opt/anaconda3/lib/python3.12/site-packages (from mlflow) (3.8.4)
+Requirement already satisfied: numpy&lt;3 in /opt/anaconda3/lib/python3.12/site-packages (from mlflow) (1.26.4)
+Requirement already satisfied: pandas&lt;3 in /opt/anaconda3/lib/python3.12/site-packages (from mlflow) (2.2.2)
+Requirement already satisfied: pyarrow&lt;19,&gt;=4.0.0 in /opt/anaconda3/lib/python3.12/site-packages (from mlflow) (14.0.2)
+Requirement already satisfied: scikit-learn&lt;2 in /opt/anaconda3/lib/python3.12/site-packages (from mlflow) (1.4.2)
+Requirement already satisfied: scipy&lt;2 in /opt/anaconda3/lib/python3.12/site-packages (from mlflow) (1.13.1)
+Requirement already satisfied: sqlalchemy&lt;3,&gt;=1.4.0 in /opt/anaconda3/lib/python3.12/site-packages (from mlflow) (2.0.30)
+Requirement already satisfied: cachetools&lt;6,&gt;=5.0.0 in /opt/anaconda3/lib/python3.12/site-packages (from mlflow-skinny==2.19.0-&gt;mlflow) (5.3.3)
+Requirement already satisfied: click&lt;9,&gt;=7.0 in /opt/anaconda3/lib/python3.12/site-packages (from mlflow-skinny==2.19.0-&gt;mlflow) (8.1.7)
+Requirement already satisfied: cloudpickle&lt;4 in /opt/anaconda3/lib/python3.12/site-packages (from mlflow-skinny==2.19.0-&gt;mlflow) (2.2.1)
+Requirement already satisfied: databricks-sdk&lt;1,&gt;=0.20.0 in /opt/anaconda3/lib/python3.12/site-packages (from mlflow-skinny==2.19.0-&gt;mlflow) (0.40.0)
+Requirement already satisfied: gitpython&lt;4,&gt;=3.1.9 in /opt/anaconda3/lib/python3.12/site-packages (from mlflow-skinny==2.19.0-&gt;mlflow) (3.1.37)
+Requirement already satisfied: importlib_metadata!=4.7.0,&lt;9,&gt;=3.7.0 in /opt/anaconda3/lib/python3.12/site-packages (from mlflow-skinny==2.19.0-&gt;mlflow) (7.0.1)
+Requirement already satisfied: opentelemetry-api&lt;3,&gt;=1.9.0 in /opt/anaconda3/lib/python3.12/site-packages (from mlflow-skinny==2.19.0-&gt;mlflow) (1.29.0)
+Requirement already satisfied: opentelemetry-sdk&lt;3,&gt;=1.9.0 in /opt/anaconda3/lib/python3.12/site-packages (from mlflow-skinny==2.19.0-&gt;mlflow) (1.29.0)
+Requirement already satisfied: packaging&lt;25 in /opt/anaconda3/lib/python3.12/site-packages (from mlflow-skinny==2.19.0-&gt;mlflow) (23.2)
+Requirement already satisfied: protobuf&lt;6,&gt;=3.12.0 in /opt/anaconda3/lib/python3.12/site-packages (from mlflow-skinny==2.19.0-&gt;mlflow) (3.20.3)
+Requirement already satisfied: pyyaml&lt;7,&gt;=5.1 in /opt/anaconda3/lib/python3.12/site-packages (from mlflow-skinny==2.19.0-&gt;mlflow) (6.0.1)
+Requirement already satisfied: requests&lt;3,&gt;=2.17.3 in /opt/anaconda3/lib/python3.12/site-packages (from mlflow-skinny==2.19.0-&gt;mlflow) (2.32.2)
+Requirement already satisfied: sqlparse&lt;1,&gt;=0.4.0 in /opt/anaconda3/lib/python3.12/site-packages (from mlflow-skinny==2.19.0-&gt;mlflow) (0.5.3)
+Requirement already satisfied: Mako in /opt/anaconda3/lib/python3.12/site-packages (from alembic!=1.10.0,&lt;2-&gt;mlflow) (1.3.8)
+Requirement already satisfied: typing-extensions&gt;=4 in /opt/anaconda3/lib/python3.12/site-packages (from alembic!=1.10.0,&lt;2-&gt;mlflow) (4.11.0)
+Requirement already satisfied: urllib3&gt;=1.26.0 in /opt/anaconda3/lib/python3.12/site-packages (from docker&lt;8,&gt;=4.0.0-&gt;mlflow) (2.2.2)
+Requirement already satisfied: Werkzeug&gt;=3.0.0 in /opt/anaconda3/lib/python3.12/site-packages (from Flask&lt;4-&gt;mlflow) (3.0.3)
+Requirement already satisfied: itsdangerous&gt;=2.1.2 in /opt/anaconda3/lib/python3.12/site-packages (from Flask&lt;4-&gt;mlflow) (2.2.0)
+Requirement already satisfied: blinker&gt;=1.6.2 in /opt/anaconda3/lib/python3.12/site-packages (from Flask&lt;4-&gt;mlflow) (1.6.2)
+Requirement already satisfied: graphql-core&lt;3.3,&gt;=3.1 in /opt/anaconda3/lib/python3.12/site-packages (from graphene&lt;4-&gt;mlflow) (3.2.5)
+Requirement already satisfied: graphql-relay&lt;3.3,&gt;=3.1 in /opt/anaconda3/lib/python3.12/site-packages (from graphene&lt;4-&gt;mlflow) (3.2.0)
+Requirement already satisfied: python-dateutil&lt;3,&gt;=2.7.0 in /opt/anaconda3/lib/python3.12/site-packages (from graphene&lt;4-&gt;mlflow) (2.9.0.post0)
+Requirement already satisfied: MarkupSafe&gt;=2.0 in /opt/anaconda3/lib/python3.12/site-packages (from Jinja2&lt;4,&gt;=2.11-&gt;mlflow) (2.1.3)
+Requirement already satisfied: contourpy&gt;=1.0.1 in /opt/anaconda3/lib/python3.12/site-packages (from matplotlib&lt;4-&gt;mlflow) (1.2.0)
+Requirement already satisfied: cycler&gt;=0.10 in /opt/anaconda3/lib/python3.12/site-packages (from matplotlib&lt;4-&gt;mlflow) (0.11.0)
+Requirement already satisfied: fonttools&gt;=4.22.0 in /opt/anaconda3/lib/python3.12/site-packages (from matplotlib&lt;4-&gt;mlflow) (4.51.0)
+Requirement already satisfied: kiwisolver&gt;=1.3.1 in /opt/anaconda3/lib/python3.12/site-packages (from matplotlib&lt;4-&gt;mlflow) (1.4.4)
+Requirement already satisfied: pillow&gt;=8 in /opt/anaconda3/lib/python3.12/site-packages (from matplotlib&lt;4-&gt;mlflow) (10.3.0)
+Requirement already satisfied: pyparsing&gt;=2.3.1 in /opt/anaconda3/lib/python3.12/site-packages (from matplotlib&lt;4-&gt;mlflow) (3.0.9)
+Requirement already satisfied: pytz&gt;=2020.1 in /opt/anaconda3/lib/python3.12/site-packages (from pandas&lt;3-&gt;mlflow) (2024.1)
+Requirement already satisfied: tzdata&gt;=2022.7 in /opt/anaconda3/lib/python3.12/site-packages (from pandas&lt;3-&gt;mlflow) (2023.3)
+Requirement already satisfied: joblib&gt;=1.2.0 in /opt/anaconda3/lib/python3.12/site-packages (from scikit-learn&lt;2-&gt;mlflow) (1.4.2)
+Requirement already satisfied: threadpoolctl&gt;=2.0.0 in /opt/anaconda3/lib/python3.12/site-packages (from scikit-learn&lt;2-&gt;mlflow) (2.2.0)
+Requirement already satisfied: google-auth~=2.0 in /opt/anaconda3/lib/python3.12/site-packages (from databricks-sdk&lt;1,&gt;=0.20.0-&gt;mlflow-skinny==2.19.0-&gt;mlflow) (2.37.0)
+Requirement already satisfied: gitdb&lt;5,&gt;=4.0.1 in /opt/anaconda3/lib/python3.12/site-packages (from gitpython&lt;4,&gt;=3.1.9-&gt;mlflow-skinny==2.19.0-&gt;mlflow) (4.0.7)
+Requirement already satisfied: zipp&gt;=0.5 in /opt/anaconda3/lib/python3.12/site-packages (from importlib_metadata!=4.7.0,&lt;9,&gt;=3.7.0-&gt;mlflow-skinny==2.19.0-&gt;mlflow) (3.17.0)
+Requirement already satisfied: deprecated&gt;=1.2.6 in /opt/anaconda3/lib/python3.12/site-packages (from opentelemetry-api&lt;3,&gt;=1.9.0-&gt;mlflow-skinny==2.19.0-&gt;mlflow) (1.2.15)
+Requirement already satisfied: opentelemetry-semantic-conventions==0.50b0 in /opt/anaconda3/lib/python3.12/site-packages (from opentelemetry-sdk&lt;3,&gt;=1.9.0-&gt;mlflow-skinny==2.19.0-&gt;mlflow) (0.50b0)
+Requirement already satisfied: six&gt;=1.5 in /opt/anaconda3/lib/python3.12/site-packages (from python-dateutil&lt;3,&gt;=2.7.0-&gt;graphene&lt;4-&gt;mlflow) (1.16.0)
+Requirement already satisfied: charset-normalizer&lt;4,&gt;=2 in /opt/anaconda3/lib/python3.12/site-packages (from requests&lt;3,&gt;=2.17.3-&gt;mlflow-skinny==2.19.0-&gt;mlflow) (2.0.4)
+Requirement already satisfied: idna&lt;4,&gt;=2.5 in /opt/anaconda3/lib/python3.12/site-packages (from requests&lt;3,&gt;=2.17.3-&gt;mlflow-skinny==2.19.0-&gt;mlflow) (3.7)
+Requirement already satisfied: certifi&gt;=2017.4.17 in /opt/anaconda3/lib/python3.12/site-packages (from requests&lt;3,&gt;=2.17.3-&gt;mlflow-skinny==2.19.0-&gt;mlflow) (2024.7.4)
+Requirement already satisfied: wrapt&lt;2,&gt;=1.10 in /opt/anaconda3/lib/python3.12/site-packages (from deprecated&gt;=1.2.6-&gt;opentelemetry-api&lt;3,&gt;=1.9.0-&gt;mlflow-skinny==2.19.0-&gt;mlflow) (1.14.1)
+Requirement already satisfied: smmap&lt;5,&gt;=3.0.1 in /opt/anaconda3/lib/python3.12/site-packages (from gitdb&lt;5,&gt;=4.0.1-&gt;gitpython&lt;4,&gt;=3.1.9-&gt;mlflow-skinny==2.19.0-&gt;mlflow) (4.0.0)
+Requirement already satisfied: pyasn1-modules&gt;=0.2.1 in /opt/anaconda3/lib/python3.12/site-packages (from google-auth~=2.0-&gt;databricks-sdk&lt;1,&gt;=0.20.0-&gt;mlflow-skinny==2.19.0-&gt;mlflow) (0.2.8)
+Requirement already satisfied: rsa&lt;5,&gt;=3.1.4 in /opt/anaconda3/lib/python3.12/site-packages (from google-auth~=2.0-&gt;databricks-sdk&lt;1,&gt;=0.20.0-&gt;mlflow-skinny==2.19.0-&gt;mlflow) (4.9)
+Requirement already satisfied: pyasn1&lt;0.5.0,&gt;=0.4.6 in /opt/anaconda3/lib/python3.12/site-packages (from pyasn1-modules&gt;=0.2.1-&gt;google-auth~=2.0-&gt;databricks-sdk&lt;1,&gt;=0.20.0-&gt;mlflow-skinny==2.19.0-&gt;mlflow) (0.4.8)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">dagshub</span>
+<span class="n">dagshub</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="n">repo_owner</span><span class="o">=</span><span class="s1">&#39;sreenathreddy6633&#39;</span><span class="p">,</span> <span class="n">repo_name</span><span class="o">=</span><span class="s1">&#39;price-detection&#39;</span><span class="p">,</span> <span class="n">mlflow</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Accessing as sreenathreddy6633
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Initialized MLflow to track repo <span style="color: #008000; text-decoration-color: #008000">"sreenathreddy6633/price-detection"</span>
+</pre>
+</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Repository sreenathreddy6633/price-detection initialized!
+</pre>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">mlflow</span>
+
+<span class="n">mlflow</span><span class="o">.</span><span class="n">set_tracking_uri</span><span class="p">(</span><span class="s2">&quot;https://dagshub.com/sreenathreddy6633/price-detection.mlflow&quot;</span><span class="p">)</span>
+<span class="n">mlflow</span><span class="o">.</span><span class="n">set_experiment</span><span class="p">(</span><span class="s2">&quot;Experiment_1&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Experiment: artifact_location=&#39;mlflow-artifacts:/1c36711f23c84b3f8eab8eb80ae4d531&#39;, creation_time=1734686438983, experiment_id=&#39;9&#39;, last_update_time=1734686438983, lifecycle_stage=&#39;active&#39;, name=&#39;Experiment_1&#39;, tags={}&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">cross_val_score</span><span class="p">,</span> <span class="n">StratifiedKFold</span><span class="p">,</span> <span class="n">GridSearchCV</span>
+<span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="kn">import</span> <span class="n">Pipeline</span>
+<span class="kn">from</span> <span class="nn">sklearn.compose</span> <span class="kn">import</span> <span class="n">ColumnTransformer</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span><span class="p">,</span> <span class="n">MinMaxScaler</span><span class="p">,</span> <span class="n">OneHotEncoder</span><span class="p">,</span> <span class="n">FunctionTransformer</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">make_scorer</span><span class="p">,</span> <span class="n">f1_score</span><span class="p">,</span> <span class="n">confusion_matrix</span>
+<span class="kn">from</span> <span class="nn">sklearn.impute</span> <span class="kn">import</span> <span class="n">SimpleImputer</span>
+<span class="kn">import</span> <span class="nn">mlflow</span>
+<span class="kn">from</span> <span class="nn">mlflow</span> <span class="kn">import</span> <span class="n">log_param</span><span class="p">,</span> <span class="n">log_metric</span>
+<span class="kn">from</span> <span class="nn">dagshub</span> <span class="kn">import</span> <span class="n">DAGsHubLogger</span><span class="p">,</span>  <span class="n">dagshub_logger</span>
+
+
+<span class="c1"># Split numerical and categorical columns</span>
+<span class="n">numerical_features</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;int64&quot;</span><span class="p">,</span> <span class="s2">&quot;float64&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">columns</span>
+<span class="n">categorical_features</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;object&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">columns</span>
+
+<span class="c1"># Define preprocessing steps</span>
+<span class="n">numerical_transformer</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">(</span><span class="n">steps</span><span class="o">=</span><span class="p">[</span>
+    <span class="p">(</span><span class="s2">&quot;imputer&quot;</span><span class="p">,</span> <span class="n">SimpleImputer</span><span class="p">(</span><span class="n">strategy</span><span class="o">=</span><span class="s2">&quot;median&quot;</span><span class="p">)),</span>
+    <span class="p">(</span><span class="s2">&quot;scaler&quot;</span><span class="p">,</span> <span class="n">MinMaxScaler</span><span class="p">())</span>
+<span class="p">])</span>
+
+<span class="n">categorical_transformer</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">(</span><span class="n">steps</span><span class="o">=</span><span class="p">[</span>
+    <span class="p">(</span><span class="s2">&quot;imputer&quot;</span><span class="p">,</span> <span class="n">SimpleImputer</span><span class="p">(</span><span class="n">strategy</span><span class="o">=</span><span class="s2">&quot;most_frequent&quot;</span><span class="p">)),</span>
+    <span class="p">(</span><span class="s2">&quot;onehot&quot;</span><span class="p">,</span> <span class="n">OneHotEncoder</span><span class="p">(</span><span class="n">handle_unknown</span><span class="o">=</span><span class="s2">&quot;ignore&quot;</span><span class="p">))</span>
+<span class="p">])</span>
+
+<span class="n">log_transformer</span> <span class="o">=</span> <span class="n">FunctionTransformer</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log1p</span><span class="p">,</span> <span class="n">validate</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">preprocessor</span> <span class="o">=</span> <span class="n">ColumnTransformer</span><span class="p">(</span>
+    <span class="n">transformers</span><span class="o">=</span><span class="p">[</span>
+        <span class="p">(</span><span class="s2">&quot;num&quot;</span><span class="p">,</span> <span class="n">numerical_transformer</span><span class="p">,</span> <span class="n">numerical_features</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">&quot;cat&quot;</span><span class="p">,</span> <span class="n">categorical_transformer</span><span class="p">,</span> <span class="n">categorical_features</span><span class="p">)</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+
+<span class="n">pipeline</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">(</span><span class="n">steps</span><span class="o">=</span><span class="p">[</span>
+    <span class="p">(</span><span class="s2">&quot;preprocessor&quot;</span><span class="p">,</span> <span class="n">preprocessor</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;log_transform&quot;</span><span class="p">,</span> <span class="n">log_transformer</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;classifier&quot;</span><span class="p">,</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">))</span>
+<span class="p">])</span>
+
+<span class="c1"># Define cross-validation strategy</span>
+<span class="n">cv</span> <span class="o">=</span> <span class="n">StratifiedKFold</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+
+<span class="c1"># Define scoring metrics</span>
+<span class="n">scoring</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;f1&quot;</span><span class="p">:</span> <span class="n">make_scorer</span><span class="p">(</span><span class="n">f1_score</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="s2">&quot;weighted&quot;</span><span class="p">),</span>
+<span class="p">}</span>
+
+<span class="c1"># Define hyperparameter grid</span>
+<span class="n">param_grid</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;classifier__C&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span>
+    <span class="s2">&quot;classifier__penalty&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;l2&quot;</span><span class="p">],</span>
+<span class="p">}</span>
+
+<span class="c1"># Initialize GridSearchCV</span>
+<span class="n">grid_search</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span>
+    <span class="n">estimator</span><span class="o">=</span><span class="n">pipeline</span><span class="p">,</span>
+    <span class="n">param_grid</span><span class="o">=</span><span class="n">param_grid</span><span class="p">,</span>
+    <span class="n">scoring</span><span class="o">=</span><span class="n">scoring</span><span class="p">,</span>
+    <span class="n">refit</span><span class="o">=</span><span class="s2">&quot;f1&quot;</span><span class="p">,</span>
+    <span class="n">cv</span><span class="o">=</span><span class="n">cv</span><span class="p">,</span>
+    <span class="n">return_train_score</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">verbose</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+    <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span>
+<span class="p">)</span>
+
+<span class="k">with</span> <span class="n">mlflow</span><span class="o">.</span><span class="n">start_run</span><span class="p">()</span> <span class="k">as</span> <span class="n">run</span><span class="p">:</span>
+    <span class="c1"># Fit the GridSearchCV</span>
+    <span class="n">grid_search</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+    <span class="c1"># Log best parameters</span>
+    <span class="n">mlflow</span><span class="o">.</span><span class="n">log_params</span><span class="p">(</span><span class="n">grid_search</span><span class="o">.</span><span class="n">best_params_</span><span class="p">)</span>
+
+    <span class="c1"># Log mean and std of cross-validation scores</span>
+    <span class="n">cv_results</span> <span class="o">=</span> <span class="n">grid_search</span><span class="o">.</span><span class="n">cv_results_</span>
+    <span class="n">f1_mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">cv_results</span><span class="p">[</span><span class="s2">&quot;mean_test_f1&quot;</span><span class="p">])</span>
+    <span class="n">f1_std</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">cv_results</span><span class="p">[</span><span class="s2">&quot;mean_test_f1&quot;</span><span class="p">])</span>
+    <span class="n">mlflow</span><span class="o">.</span><span class="n">log_metric</span><span class="p">(</span><span class="s2">&quot;f1_mean&quot;</span><span class="p">,</span> <span class="n">f1_mean</span><span class="p">)</span>
+    <span class="n">mlflow</span><span class="o">.</span><span class="n">log_metric</span><span class="p">(</span><span class="s2">&quot;f1_std&quot;</span><span class="p">,</span> <span class="n">f1_std</span><span class="p">)</span>
+
+    <span class="c1"># Log confusion matrix on the whole training data</span>
+    <span class="n">best_model</span> <span class="o">=</span> <span class="n">grid_search</span><span class="o">.</span><span class="n">best_estimator_</span>
+    <span class="n">y_pred</span> <span class="o">=</span> <span class="n">best_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+    <span class="n">cm</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+    <span class="n">cm_str</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">cm</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
+
+    <span class="n">mlflow</span><span class="o">.</span><span class="n">log_text</span><span class="p">(</span><span class="n">cm_str</span><span class="p">,</span> <span class="s2">&quot;confusion_matrix/confusion_matrix.txt&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Print results</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Best F1 Score (CV): </span><span class="si">{</span><span class="n">f1_mean</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> ± </span><span class="si">{</span><span class="n">f1_std</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fitting 10 folds for each of 3 candidates, totalling 30 fits
+Best F1 Score (CV): 0.852 ± 0.096
+🏃 View run clumsy-ape-303 at: https://dagshub.com/sreenathreddy6633/price-detection.mlflow/#/experiments/9/runs/e5b5fba59a424e7b9f05c731b061ffa4
+🧪 View experiment at: https://dagshub.com/sreenathreddy6633/price-detection.mlflow/#/experiments/9
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">accuracy_score</span><span class="p">,</span> <span class="n">f1_score</span>
+<span class="c1"># Define models for the experiment</span>
+<span class="n">models</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;LogisticRegression&quot;</span><span class="p">:</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">),</span>
+    <span class="s2">&quot;RidgeClassifier&quot;</span><span class="p">:</span> <span class="n">RidgeClassifier</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">),</span>
+    <span class="s2">&quot;RandomForestClassifier&quot;</span><span class="p">:</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">),</span>
+    <span class="s2">&quot;XGBClassifier&quot;</span><span class="p">:</span> <span class="n">XGBClassifier</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="c1"># Define preprocessing pipeline</span>
+<span class="n">preprocessing</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([</span>
+    <span class="p">(</span><span class="s2">&quot;scaler&quot;</span><span class="p">,</span> <span class="n">StandardScaler</span><span class="p">())</span>
+<span class="p">])</span>
+
+<span class="c1"># Setup MLFlow with DagsHub</span>
+<span class="n">mlflow</span><span class="o">.</span><span class="n">set_experiment</span><span class="p">(</span><span class="s2">&quot;Experiment_2&quot;</span><span class="p">)</span>
+
+<span class="c1"># Run models and log results</span>
+<span class="k">with</span> <span class="n">dagshub</span><span class="o">.</span><span class="n">dagshub_logger</span><span class="p">()</span> <span class="k">as</span> <span class="n">logger</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">model_name</span><span class="p">,</span> <span class="n">model</span> <span class="ow">in</span> <span class="n">models</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">with</span> <span class="n">mlflow</span><span class="o">.</span><span class="n">start_run</span><span class="p">(</span><span class="n">run_name</span><span class="o">=</span><span class="n">model_name</span><span class="p">):</span>
+            <span class="c1"># Preprocessing</span>
+            <span class="n">X_train_preprocessed</span> <span class="o">=</span> <span class="n">preprocessing</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+            <span class="n">X_test_preprocessed</span> <span class="o">=</span> <span class="n">preprocessing</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+
+            <span class="c1"># Model fitting</span>
+            <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_preprocessed</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+            <span class="c1"># Predictions</span>
+            <span class="n">y_pred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test_preprocessed</span><span class="p">)</span>
+
+            <span class="c1"># Metrics</span>
+            <span class="n">acc</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+            <span class="n">f1</span> <span class="o">=</span> <span class="n">f1_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="s2">&quot;weighted&quot;</span><span class="p">)</span>
+
+            <span class="c1"># Log parameters, metrics, and model</span>
+            <span class="n">log_param</span><span class="p">(</span><span class="s2">&quot;model&quot;</span><span class="p">,</span> <span class="n">model_name</span><span class="p">)</span>
+            <span class="n">log_metric</span><span class="p">(</span><span class="s2">&quot;accuracy&quot;</span><span class="p">,</span> <span class="n">acc</span><span class="p">)</span>
+            <span class="n">log_metric</span><span class="p">(</span><span class="s2">&quot;f1_score&quot;</span><span class="p">,</span> <span class="n">f1</span><span class="p">)</span>
+
+            <span class="n">logger</span><span class="o">.</span><span class="n">log_metrics</span><span class="p">({</span><span class="s2">&quot;accuracy&quot;</span><span class="p">:</span> <span class="n">acc</span><span class="p">,</span> <span class="s2">&quot;f1_score&quot;</span><span class="p">:</span> <span class="n">f1</span><span class="p">})</span>
+            <span class="n">mlflow</span><span class="o">.</span><span class="n">sklearn</span><span class="o">.</span><span class="n">log_model</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">model_name</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">model_name</span><span class="si">}</span><span class="s2">: Accuracy = </span><span class="si">{</span><span class="n">acc</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">, F1 Score = </span><span class="si">{</span><span class="n">f1</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Red">2024/12/21 16:58:56 WARNING mlflow.models.model: Model logged without a signature and input example. Please set `input_example` parameter when logging the model to auto infer the model signature.</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LogisticRegression: Accuracy = 0.9620, F1 Score = 0.9619
+🏃 View run LogisticRegression at: https://dagshub.com/sreenathreddy6633/price-detection.mlflow/#/experiments/10/runs/100c1b49b58440288bf7f2707717a1fb
+🧪 View experiment at: https://dagshub.com/sreenathreddy6633/price-detection.mlflow/#/experiments/10
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Red">2024/12/21 16:59:04 WARNING mlflow.models.model: Model logged without a signature and input example. Please set `input_example` parameter when logging the model to auto infer the model signature.</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>RidgeClassifier: Accuracy = 0.6400, F1 Score = 0.5770
+🏃 View run RidgeClassifier at: https://dagshub.com/sreenathreddy6633/price-detection.mlflow/#/experiments/10/runs/8c805fd2a7c84445b59149d6ffc0db76
+🧪 View experiment at: https://dagshub.com/sreenathreddy6633/price-detection.mlflow/#/experiments/10
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Red">2024/12/21 16:59:17 WARNING mlflow.models.model: Model logged without a signature and input example. Please set `input_example` parameter when logging the model to auto infer the model signature.</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>RandomForestClassifier: Accuracy = 0.8720, F1 Score = 0.8719
+🏃 View run RandomForestClassifier at: https://dagshub.com/sreenathreddy6633/price-detection.mlflow/#/experiments/10/runs/1556e2f8c3b44a51b37a99eb364c566e
+🧪 View experiment at: https://dagshub.com/sreenathreddy6633/price-detection.mlflow/#/experiments/10
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Red">2024/12/21 16:59:30 WARNING mlflow.models.model: Model logged without a signature and input example. Please set `input_example` parameter when logging the model to auto infer the model signature.</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>XGBClassifier: Accuracy = 0.9000, F1 Score = 0.9000
+🏃 View run XGBClassifier at: https://dagshub.com/sreenathreddy6633/price-detection.mlflow/#/experiments/10/runs/33a920121f204fa1bdab8c0e6090e142
+🧪 View experiment at: https://dagshub.com/sreenathreddy6633/price-detection.mlflow/#/experiments/10
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Feature interactions</span>
+<span class="k">def</span> <span class="nf">feature_engineering</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+    <span class="n">df_fe</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">df_fe</span><span class="p">[</span><span class="s2">&quot;battery_to_weight_ratio&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_fe</span><span class="p">[</span><span class="s2">&quot;battery_power&quot;</span><span class="p">]</span> <span class="o">/</span> <span class="n">df_fe</span><span class="p">[</span><span class="s2">&quot;mobile_wt&quot;</span><span class="p">]</span>
+    <span class="n">df_fe</span><span class="p">[</span><span class="s2">&quot;ram_to_core_ratio&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_fe</span><span class="p">[</span><span class="s2">&quot;ram&quot;</span><span class="p">]</span> <span class="o">/</span> <span class="n">df_fe</span><span class="p">[</span><span class="s2">&quot;n_cores&quot;</span><span class="p">]</span>
+    <span class="c1"># Scaling features</span>
+    <span class="n">df_fe</span><span class="p">[</span><span class="s2">&quot;scaled_clock_speed&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log1p</span><span class="p">(</span><span class="n">df_fe</span><span class="p">[</span><span class="s2">&quot;clock_speed&quot;</span><span class="p">])</span>
+    <span class="c1"># Additional combinations</span>
+    <span class="n">df_fe</span><span class="p">[</span><span class="s2">&quot;px_resolution&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_fe</span><span class="p">[</span><span class="s2">&quot;px_height&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="n">df_fe</span><span class="p">[</span><span class="s2">&quot;px_width&quot;</span><span class="p">]</span> 
+    <span class="n">df_fe</span><span class="p">[</span><span class="s2">&quot;sc_aspect_ratio&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_fe</span><span class="p">[</span><span class="s2">&quot;sc_h&quot;</span><span class="p">]</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="n">df_fe</span><span class="p">[</span><span class="s2">&quot;sc_w&quot;</span><span class="p">],</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">df_fe</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;sc_h&#39;</span><span class="p">,</span> <span class="s1">&#39;clock_speed&#39;</span><span class="p">],</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">df_fe</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_train_fe</span> <span class="o">=</span> <span class="n">feature_engineering</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+<span class="n">X_test_fe</span> <span class="o">=</span> <span class="n">feature_engineering</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;X_train_fe type:&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">X_train_fe</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;X_test_fe type:&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">X_test_fe</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>X_train_fe type: &lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+X_test_fe type: &lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">preprocessing</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([</span>
+    <span class="p">(</span><span class="s2">&quot;scaler&quot;</span><span class="p">,</span> <span class="n">StandardScaler</span><span class="p">())</span>
+<span class="p">])</span>
+
+<span class="c1"># Setup MLFlow with DagsHub</span>
+<span class="n">mlflow</span><span class="o">.</span><span class="n">set_tracking_uri</span><span class="p">(</span><span class="s2">&quot;https://dagshub.com/sreenathreddy6633/price-detection.mlflow&quot;</span><span class="p">)</span>  <span class="c1"># Replace with your DagsHub repo</span>
+<span class="n">mlflow</span><span class="o">.</span><span class="n">set_experiment</span><span class="p">(</span><span class="s2">&quot;Experiment_3&quot;</span><span class="p">)</span>
+
+<span class="c1"># Run models and log results</span>
+<span class="k">with</span> <span class="n">dagshub</span><span class="o">.</span><span class="n">dagshub_logger</span><span class="p">()</span> <span class="k">as</span> <span class="n">logger</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">model_name</span><span class="p">,</span> <span class="n">model</span> <span class="ow">in</span> <span class="n">models</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">with</span> <span class="n">mlflow</span><span class="o">.</span><span class="n">start_run</span><span class="p">(</span><span class="n">run_name</span><span class="o">=</span><span class="n">model_name</span><span class="p">):</span>
+            <span class="c1"># Preprocessing</span>
+            <span class="n">X_train_fe</span> <span class="o">=</span> <span class="n">preprocessing</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X_train_fe</span><span class="p">)</span>
+            <span class="n">X_test_fe</span> <span class="o">=</span> <span class="n">preprocessing</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_test_fe</span><span class="p">)</span>
+
+            <span class="c1"># Model fitting</span>
+            <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_fe</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+            <span class="c1"># Predictions</span>
+            <span class="n">y_pred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test_fe</span><span class="p">)</span>
+
+            <span class="c1"># Metrics</span>
+            <span class="n">acc</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+            <span class="n">f1</span> <span class="o">=</span> <span class="n">f1_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="s2">&quot;weighted&quot;</span><span class="p">)</span>
+
+            <span class="c1"># Log parameters, metrics, and model</span>
+            <span class="n">log_param</span><span class="p">(</span><span class="s2">&quot;model&quot;</span><span class="p">,</span> <span class="n">model_name</span><span class="p">)</span>
+            <span class="n">log_metric</span><span class="p">(</span><span class="s2">&quot;accuracy&quot;</span><span class="p">,</span> <span class="n">acc</span><span class="p">)</span>
+            <span class="n">log_metric</span><span class="p">(</span><span class="s2">&quot;f1_score&quot;</span><span class="p">,</span> <span class="n">f1</span><span class="p">)</span>
+
+            <span class="n">logger</span><span class="o">.</span><span class="n">log_metrics</span><span class="p">({</span><span class="s2">&quot;accuracy&quot;</span><span class="p">:</span> <span class="n">acc</span><span class="p">,</span> <span class="s2">&quot;f1_score&quot;</span><span class="p">:</span> <span class="n">f1</span><span class="p">})</span>
+            <span class="n">mlflow</span><span class="o">.</span><span class="n">sklearn</span><span class="o">.</span><span class="n">log_model</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">model_name</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">model_name</span><span class="si">}</span><span class="s2">: Accuracy = </span><span class="si">{</span><span class="n">acc</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">, F1 Score = </span><span class="si">{</span><span class="n">f1</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Red">2024/12/21 16:59:43 WARNING mlflow.models.model: Model logged without a signature and input example. Please set `input_example` parameter when logging the model to auto infer the model signature.</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LogisticRegression: Accuracy = 0.9500, F1 Score = 0.9499
+🏃 View run LogisticRegression at: https://dagshub.com/sreenathreddy6633/price-detection.mlflow/#/experiments/11/runs/cb735703e87a476eb956f5f0472ed7e7
+🧪 View experiment at: https://dagshub.com/sreenathreddy6633/price-detection.mlflow/#/experiments/11
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Red">2024/12/21 16:59:56 WARNING mlflow.models.model: Model logged without a signature and input example. Please set `input_example` parameter when logging the model to auto infer the model signature.</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>RidgeClassifier: Accuracy = 0.6280, F1 Score = 0.5640
+🏃 View run RidgeClassifier at: https://dagshub.com/sreenathreddy6633/price-detection.mlflow/#/experiments/11/runs/89bdd73676cc441bae14160cb1c880e2
+🧪 View experiment at: https://dagshub.com/sreenathreddy6633/price-detection.mlflow/#/experiments/11
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Red">2024/12/21 17:00:09 WARNING mlflow.models.model: Model logged without a signature and input example. Please set `input_example` parameter when logging the model to auto infer the model signature.</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>RandomForestClassifier: Accuracy = 0.8920, F1 Score = 0.8924
+🏃 View run RandomForestClassifier at: https://dagshub.com/sreenathreddy6633/price-detection.mlflow/#/experiments/11/runs/a326a9c5966f42d4aee52109daba3f38
+🧪 View experiment at: https://dagshub.com/sreenathreddy6633/price-detection.mlflow/#/experiments/11
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Red">2024/12/21 17:00:22 WARNING mlflow.models.model: Model logged without a signature and input example. Please set `input_example` parameter when logging the model to auto infer the model signature.</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>XGBClassifier: Accuracy = 0.8980, F1 Score = 0.8983
+🏃 View run XGBClassifier at: https://dagshub.com/sreenathreddy6633/price-detection.mlflow/#/experiments/11/runs/4696e5eabaa34537af68cc296f1d0aa8
+🧪 View experiment at: https://dagshub.com/sreenathreddy6633/price-detection.mlflow/#/experiments/11
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Correlation Threshold</span>
+<span class="k">def</span> <span class="nf">correlation_threshold</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">0.8</span><span class="p">):</span>
+    <span class="n">corr_matrix</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span><span class="o">.</span><span class="n">abs</span><span class="p">()</span>
+    <span class="n">upper</span> <span class="o">=</span> <span class="n">corr_matrix</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">triu</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">corr_matrix</span><span class="o">.</span><span class="n">shape</span><span class="p">),</span> <span class="n">k</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">bool</span><span class="p">))</span>
+    <span class="n">to_drop</span> <span class="o">=</span> <span class="p">[</span><span class="n">column</span> <span class="k">for</span> <span class="n">column</span> <span class="ow">in</span> <span class="n">upper</span><span class="o">.</span><span class="n">columns</span> <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="n">upper</span><span class="p">[</span><span class="n">column</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">threshold</span><span class="p">)]</span>
+    <span class="k">return</span> <span class="n">to_drop</span>
+
+<span class="c1"># Variance Threshold</span>
+<span class="k">def</span> <span class="nf">variance_threshold</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">0.01</span><span class="p">):</span>
+    <span class="n">selector</span> <span class="o">=</span> <span class="n">VarianceThreshold</span><span class="p">(</span><span class="n">threshold</span><span class="p">)</span>
+    <span class="n">selector</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="o">~</span><span class="n">selector</span><span class="o">.</span><span class="n">get_support</span><span class="p">()]</span>
+
+<span class="c1"># Feature Importance</span>
+<span class="k">def</span> <span class="nf">feature_importance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">num_features</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+    <span class="n">rf</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">rf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span>
+    <span class="n">importance</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+        <span class="s2">&quot;Feature&quot;</span><span class="p">:</span> <span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span>
+        <span class="s2">&quot;Importance&quot;</span><span class="p">:</span> <span class="n">rf</span><span class="o">.</span><span class="n">feature_importances_</span>
+    <span class="p">})</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s2">&quot;Importance&quot;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">importance</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="n">num_features</span><span class="p">)</span>
+
+<span class="c1"># Preprocess and split data</span>
+<span class="n">X_train_selected</span> <span class="o">=</span> <span class="n">X_train</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">y_train_selected</span> <span class="o">=</span> <span class="n">y_train</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="c1"># Correlation Threshold</span>
+<span class="n">correlated_features</span> <span class="o">=</span> <span class="n">correlation_threshold</span><span class="p">(</span><span class="n">X_train_selected</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
+<span class="n">X_train_selected</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">correlated_features</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Variance Threshold</span>
+<span class="n">low_variance_features</span> <span class="o">=</span> <span class="n">variance_threshold</span><span class="p">(</span><span class="n">X_train_selected</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">0.01</span><span class="p">)</span>
+<span class="n">X_train_selected</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">low_variance_features</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Feature Importance</span>
+<span class="n">important_features</span> <span class="o">=</span> <span class="n">feature_importance</span><span class="p">(</span><span class="n">X_train_selected</span><span class="p">,</span> <span class="n">y_train_selected</span><span class="p">,</span> <span class="n">num_features</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">X_train_selected</span> <span class="o">=</span> <span class="n">X_train_selected</span><span class="p">[</span><span class="n">important_features</span><span class="p">[</span><span class="s2">&quot;Feature&quot;</span><span class="p">]]</span>
+
+<span class="c1"># Setup MLFlow with DagsHub</span>
+<span class="n">mlflow</span><span class="o">.</span><span class="n">set_tracking_uri</span><span class="p">(</span><span class="s2">&quot;https://dagshub.com/sreenathreddy6633/price-detection.mlflow&quot;</span><span class="p">)</span>  <span class="c1"># Replace with your DagsHub repo</span>
+<span class="n">mlflow</span><span class="o">.</span><span class="n">set_experiment</span><span class="p">(</span><span class="s2">&quot;Experiment_4&quot;</span><span class="p">)</span>
+
+<span class="c1"># Log feature selection results</span>
+<span class="k">with</span> <span class="n">dagshub_logger</span><span class="p">()</span> <span class="k">as</span> <span class="n">logger</span><span class="p">:</span>
+    <span class="k">with</span> <span class="n">mlflow</span><span class="o">.</span><span class="n">start_run</span><span class="p">(</span><span class="n">run_name</span><span class="o">=</span><span class="s2">&quot;Feature_Selection&quot;</span><span class="p">):</span>
+        <span class="c1"># Log parameters and features</span>
+        <span class="n">log_param</span><span class="p">(</span><span class="s2">&quot;correlated_features_removed&quot;</span><span class="p">,</span> <span class="n">correlated_features</span><span class="p">)</span>
+        <span class="n">log_param</span><span class="p">(</span><span class="s2">&quot;low_variance_features_removed&quot;</span><span class="p">,</span> <span class="n">low_variance_features</span><span class="p">)</span>
+        <span class="n">log_param</span><span class="p">(</span><span class="s2">&quot;important_features&quot;</span><span class="p">,</span> <span class="n">important_features</span><span class="p">[</span><span class="s2">&quot;Feature&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
+
+        <span class="c1"># Log metrics and artifacts</span>
+        <span class="n">mlflow</span><span class="o">.</span><span class="n">log_text</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">important_features</span><span class="p">),</span> <span class="s2">&quot;selected_features/selected_features.txt&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Feature selection completed. Results logged in MLFlow.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Feature selection completed. Results logged in MLFlow.
+🏃 View run Feature_Selection at: https://dagshub.com/sreenathreddy6633/price-detection.mlflow/#/experiments/12/runs/7126f335e3554fcb8c2473b3cc44430d
+🧪 View experiment at: https://dagshub.com/sreenathreddy6633/price-detection.mlflow/#/experiments/12
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">preprocessing</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([</span>
+    <span class="p">(</span><span class="s2">&quot;scaler&quot;</span><span class="p">,</span> <span class="n">StandardScaler</span><span class="p">())</span>
+<span class="p">])</span>
+
+
+<span class="c1"># Run models and log results</span>
+<span class="k">with</span> <span class="n">dagshub</span><span class="o">.</span><span class="n">dagshub_logger</span><span class="p">()</span> <span class="k">as</span> <span class="n">logger</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">model_name</span><span class="p">,</span> <span class="n">model</span> <span class="ow">in</span> <span class="n">models</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">with</span> <span class="n">mlflow</span><span class="o">.</span><span class="n">start_run</span><span class="p">(</span><span class="n">run_name</span><span class="o">=</span><span class="n">model_name</span><span class="p">):</span>
+            <span class="c1"># Preprocessing</span>
+            <span class="n">X_train_fs</span> <span class="o">=</span> <span class="n">preprocessing</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X_train</span><span class="p">[</span><span class="n">important_features</span><span class="p">[</span><span class="s1">&#39;Feature&#39;</span><span class="p">]])</span>
+            <span class="n">X_test_fs</span> <span class="o">=</span> <span class="n">preprocessing</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_test</span><span class="p">[</span><span class="n">important_features</span><span class="p">[</span><span class="s1">&#39;Feature&#39;</span><span class="p">]])</span>
+
+            <span class="c1"># Model fitting</span>
+            <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_fs</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+            <span class="c1"># Predictions</span>
+            <span class="n">y_pred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test_fs</span><span class="p">)</span>
+
+            <span class="c1"># Metrics</span>
+            <span class="n">acc</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+            <span class="n">f1</span> <span class="o">=</span> <span class="n">f1_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="s2">&quot;weighted&quot;</span><span class="p">)</span>
+
+            <span class="c1"># Log parameters, metrics, and model</span>
+            <span class="n">log_param</span><span class="p">(</span><span class="s2">&quot;model&quot;</span><span class="p">,</span> <span class="n">model_name</span><span class="p">)</span>
+            <span class="n">log_metric</span><span class="p">(</span><span class="s2">&quot;accuracy&quot;</span><span class="p">,</span> <span class="n">acc</span><span class="p">)</span>
+            <span class="n">log_metric</span><span class="p">(</span><span class="s2">&quot;f1_score&quot;</span><span class="p">,</span> <span class="n">f1</span><span class="p">)</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">log_metrics</span><span class="p">({</span><span class="s2">&quot;accuracy&quot;</span><span class="p">:</span> <span class="n">acc</span><span class="p">,</span> <span class="s2">&quot;f1_score&quot;</span><span class="p">:</span> <span class="n">f1</span><span class="p">})</span>
+            <span class="n">mlflow</span><span class="o">.</span><span class="n">sklearn</span><span class="o">.</span><span class="n">log_model</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">model_name</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">model_name</span><span class="si">}</span><span class="s2">: Accuracy = </span><span class="si">{</span><span class="n">acc</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">, F1 Score = </span><span class="si">{</span><span class="n">f1</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Red">2024/12/21 17:00:43 WARNING mlflow.models.model: Model logged without a signature and input example. Please set `input_example` parameter when logging the model to auto infer the model signature.</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LogisticRegression: Accuracy = 0.9720, F1 Score = 0.9719
+🏃 View run LogisticRegression at: https://dagshub.com/sreenathreddy6633/price-detection.mlflow/#/experiments/12/runs/5fe90ca9b3ec4d1bae4a0452f5147c22
+🧪 View experiment at: https://dagshub.com/sreenathreddy6633/price-detection.mlflow/#/experiments/12
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Red">2024/12/21 17:00:56 WARNING mlflow.models.model: Model logged without a signature and input example. Please set `input_example` parameter when logging the model to auto infer the model signature.</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>RidgeClassifier: Accuracy = 0.6000, F1 Score = 0.5134
+🏃 View run RidgeClassifier at: https://dagshub.com/sreenathreddy6633/price-detection.mlflow/#/experiments/12/runs/82a1064f851542fc91904aa6da6c8a1c
+🧪 View experiment at: https://dagshub.com/sreenathreddy6633/price-detection.mlflow/#/experiments/12
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Red">2024/12/21 17:01:09 WARNING mlflow.models.model: Model logged without a signature and input example. Please set `input_example` parameter when logging the model to auto infer the model signature.</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>RandomForestClassifier: Accuracy = 0.9000, F1 Score = 0.8999
+🏃 View run RandomForestClassifier at: https://dagshub.com/sreenathreddy6633/price-detection.mlflow/#/experiments/12/runs/06c2fa029e7046d9b62826f85bdc7587
+🧪 View experiment at: https://dagshub.com/sreenathreddy6633/price-detection.mlflow/#/experiments/12
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Red">2024/12/21 17:01:22 WARNING mlflow.models.model: Model logged without a signature and input example. Please set `input_example` parameter when logging the model to auto infer the model signature.</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>XGBClassifier: Accuracy = 0.8960, F1 Score = 0.8958
+🏃 View run XGBClassifier at: https://dagshub.com/sreenathreddy6633/price-detection.mlflow/#/experiments/12/runs/bb4d8f4437774b089d95fb7eac096779
+🧪 View experiment at: https://dagshub.com/sreenathreddy6633/price-detection.mlflow/#/experiments/12
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="experiment-5">
+<h1>Experiment 5<a class="headerlink" href="#experiment-5" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Apply PCA</span>
+<span class="n">pca</span> <span class="o">=</span> <span class="n">PCA</span><span class="p">()</span>
+<span class="n">X_train_pca</span> <span class="o">=</span> <span class="n">pca</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+<span class="n">X_test_pca</span> <span class="o">=</span> <span class="n">pca</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+
+<span class="c1"># Calculate cumulative explained variance</span>
+<span class="n">explained_variance</span> <span class="o">=</span> <span class="n">pca</span><span class="o">.</span><span class="n">explained_variance_ratio_</span>
+<span class="n">cumulative_variance</span> <span class="o">=</span> <span class="n">explained_variance</span><span class="o">.</span><span class="n">cumsum</span><span class="p">()</span>
+
+<span class="c1"># Scree plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">cumulative_variance</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="n">cumulative_variance</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Number of Principal Components&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Cumulative Explained Variance&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Scree Plot&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># Select the number of components to retain (e.g., 95% cumulative variance)</span>
+<span class="n">n_components</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">var</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">cumulative_variance</span><span class="p">)</span> <span class="k">if</span> <span class="n">var</span> <span class="o">&gt;=</span> <span class="mf">0.95</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Number of components to retain for 95% variance: </span><span class="si">{</span><span class="n">n_components</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Transform data using the selected components</span>
+<span class="n">pca</span> <span class="o">=</span> <span class="n">PCA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="n">n_components</span><span class="p">)</span>
+<span class="n">X_train_reduced</span> <span class="o">=</span> <span class="n">pca</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+<span class="n">X_test_reduced</span> <span class="o">=</span> <span class="n">pca</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/0aa987a877a0ac2c4152d0e460cf504720ba87b0df0cba06d3ca058fd4857a5b.png" src="_images/0aa987a877a0ac2c4152d0e460cf504720ba87b0df0cba06d3ca058fd4857a5b.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Number of components to retain for 95% variance: 4
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mlflow</span><span class="o">.</span><span class="n">set_experiment</span><span class="p">(</span><span class="s2">&quot;Experiment_5&quot;</span><span class="p">)</span>
+
+<span class="k">with</span> <span class="n">dagshub</span><span class="o">.</span><span class="n">dagshub_logger</span><span class="p">()</span> <span class="k">as</span> <span class="n">logger</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">model_name</span><span class="p">,</span> <span class="n">model</span> <span class="ow">in</span> <span class="n">models</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">with</span> <span class="n">mlflow</span><span class="o">.</span><span class="n">start_run</span><span class="p">(</span><span class="n">run_name</span><span class="o">=</span><span class="n">model_name</span><span class="p">):</span>
+            <span class="c1"># Preprocessing</span>
+            <span class="n">X_train_reduced</span> <span class="o">=</span> <span class="n">preprocessing</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X_train_reduced</span><span class="p">)</span>
+            <span class="n">X_test_reduced</span> <span class="o">=</span> <span class="n">preprocessing</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_test_reduced</span><span class="p">)</span>
+
+            <span class="c1"># Model fitting</span>
+            <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_reduced</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+            <span class="c1"># Predictions</span>
+            <span class="n">y_pred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test_reduced</span><span class="p">)</span>
+
+            <span class="c1"># Metrics</span>
+            <span class="n">acc</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+            <span class="n">f1</span> <span class="o">=</span> <span class="n">f1_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="s2">&quot;weighted&quot;</span><span class="p">)</span>
+
+            <span class="c1"># Log parameters, metrics, and model</span>
+            <span class="n">log_param</span><span class="p">(</span><span class="s2">&quot;model&quot;</span><span class="p">,</span> <span class="n">model_name</span><span class="p">)</span>
+            <span class="n">log_metric</span><span class="p">(</span><span class="s2">&quot;accuracy&quot;</span><span class="p">,</span> <span class="n">acc</span><span class="p">)</span>
+            <span class="n">log_metric</span><span class="p">(</span><span class="s2">&quot;f1_score&quot;</span><span class="p">,</span> <span class="n">f1</span><span class="p">)</span>
+
+            <span class="n">logger</span><span class="o">.</span><span class="n">log_metrics</span><span class="p">({</span><span class="s2">&quot;accuracy&quot;</span><span class="p">:</span> <span class="n">acc</span><span class="p">,</span> <span class="s2">&quot;f1_score&quot;</span><span class="p">:</span> <span class="n">f1</span><span class="p">})</span>
+            <span class="n">mlflow</span><span class="o">.</span><span class="n">sklearn</span><span class="o">.</span><span class="n">log_model</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">model_name</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">model_name</span><span class="si">}</span><span class="s2">: Accuracy = </span><span class="si">{</span><span class="n">acc</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">, F1 Score = </span><span class="si">{</span><span class="n">f1</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Red">2024/12/21 17:01:35 WARNING mlflow.models.model: Model logged without a signature and input example. Please set `input_example` parameter when logging the model to auto infer the model signature.</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LogisticRegression: Accuracy = 0.9600, F1 Score = 0.9599
+🏃 View run LogisticRegression at: https://dagshub.com/sreenathreddy6633/price-detection.mlflow/#/experiments/13/runs/8312df9009744fb1ab823f4160dd5f1c
+🧪 View experiment at: https://dagshub.com/sreenathreddy6633/price-detection.mlflow/#/experiments/13
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Red">2024/12/21 17:01:48 WARNING mlflow.models.model: Model logged without a signature and input example. Please set `input_example` parameter when logging the model to auto infer the model signature.</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>RidgeClassifier: Accuracy = 0.5780, F1 Score = 0.4737
+🏃 View run RidgeClassifier at: https://dagshub.com/sreenathreddy6633/price-detection.mlflow/#/experiments/13/runs/3fe9ab995b3c44a8b18aeed6fac15421
+🧪 View experiment at: https://dagshub.com/sreenathreddy6633/price-detection.mlflow/#/experiments/13
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Red">2024/12/21 17:02:02 WARNING mlflow.models.model: Model logged without a signature and input example. Please set `input_example` parameter when logging the model to auto infer the model signature.</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>RandomForestClassifier: Accuracy = 0.9240, F1 Score = 0.9242
+🏃 View run RandomForestClassifier at: https://dagshub.com/sreenathreddy6633/price-detection.mlflow/#/experiments/13/runs/0f1e98451f334f4cb062791ed4f2bccd
+🧪 View experiment at: https://dagshub.com/sreenathreddy6633/price-detection.mlflow/#/experiments/13
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Red">2024/12/21 17:02:14 WARNING mlflow.models.model: Model logged without a signature and input example. Please set `input_example` parameter when logging the model to auto infer the model signature.</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>XGBClassifier: Accuracy = 0.9280, F1 Score = 0.9283
+🏃 View run XGBClassifier at: https://dagshub.com/sreenathreddy6633/price-detection.mlflow/#/experiments/13/runs/f324311a159e4e4ca7f0b5dd0bcd1daf
+🧪 View experiment at: https://dagshub.com/sreenathreddy6633/price-detection.mlflow/#/experiments/13
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">StackingClassifier</span>
+<span class="c1">#from sklearn.preprocessing import StandardScaler, FunctionTransformer</span>
+<span class="kn">from</span> <span class="nn">dagshub</span> <span class="kn">import</span> <span class="n">dagshub_logger</span>
+<span class="c1"># Feature engineering</span>
+<span class="k">def</span> <span class="nf">hybrid_features</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">data</span><span class="p">[</span><span class="s2">&quot;battery_to_weight_ratio&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;battery_power&quot;</span><span class="p">]</span> <span class="o">/</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;mobile_wt&quot;</span><span class="p">]</span>
+    <span class="n">data</span><span class="p">[</span><span class="s2">&quot;px_resolution&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;px_height&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;px_width&quot;</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">data</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Preprocessing pipeline</span>
+<span class="n">preprocessing</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([</span>
+    <span class="p">(</span><span class="s2">&quot;feature_engineering&quot;</span><span class="p">,</span> <span class="n">FunctionTransformer</span><span class="p">(</span><span class="n">hybrid_features</span><span class="p">,</span> <span class="n">validate</span><span class="o">=</span><span class="kc">False</span><span class="p">)),</span>
+    <span class="p">(</span><span class="s2">&quot;scaler&quot;</span><span class="p">,</span> <span class="n">StandardScaler</span><span class="p">()),</span>
+    <span class="p">(</span><span class="s2">&quot;pca&quot;</span><span class="p">,</span> <span class="n">PCA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>  <span class="c1"># Retain top 10 PCA components</span>
+<span class="p">])</span>
+
+<span class="c1"># Preprocess data</span>
+<span class="n">X_train_transformed</span> <span class="o">=</span> <span class="n">preprocessing</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+<span class="n">X_test_transformed</span> <span class="o">=</span> <span class="n">preprocessing</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+
+<span class="c1"># Base models for stacking</span>
+<span class="n">base_models</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="s2">&quot;lr&quot;</span><span class="p">,</span> <span class="n">RidgeClassifier</span><span class="p">(</span><span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)),</span>
+    <span class="p">(</span><span class="s2">&quot;rf&quot;</span><span class="p">,</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">)),</span>
+    <span class="p">(</span><span class="s2">&quot;xgb&quot;</span><span class="p">,</span> <span class="n">XGBClassifier</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">))</span>
+<span class="p">]</span>
+
+<span class="c1"># Meta-model for stacking</span>
+<span class="n">meta_model</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+
+<span class="c1"># Stacking classifier</span>
+<span class="n">stacking_model</span> <span class="o">=</span> <span class="n">StackingClassifier</span><span class="p">(</span><span class="n">estimators</span><span class="o">=</span><span class="n">base_models</span><span class="p">,</span> <span class="n">final_estimator</span><span class="o">=</span><span class="n">meta_model</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Train and evaluate model</span>
+<span class="n">mlflow</span><span class="o">.</span><span class="n">set_experiment</span><span class="p">(</span><span class="s2">&quot;Experiment_6&quot;</span><span class="p">)</span>
+<span class="k">with</span> <span class="n">dagshub_logger</span><span class="p">()</span> <span class="k">as</span> <span class="n">logger</span><span class="p">:</span>
+    <span class="k">with</span> <span class="n">mlflow</span><span class="o">.</span><span class="n">start_run</span><span class="p">(</span><span class="n">run_name</span><span class="o">=</span><span class="s2">&quot;Custom_Stacked_Experiment&quot;</span><span class="p">):</span>
+        <span class="c1"># Fit stacking model</span>
+        <span class="n">stacking_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_transformed</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+        <span class="c1"># Predictions</span>
+        <span class="n">y_pred</span> <span class="o">=</span> <span class="n">stacking_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test_transformed</span><span class="p">)</span>
+
+        <span class="c1"># Metrics</span>
+        <span class="n">acc</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+        <span class="n">f1</span> <span class="o">=</span> <span class="n">f1_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="s2">&quot;weighted&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Log parameters and results</span>
+        <span class="n">log_param</span><span class="p">(</span><span class="s2">&quot;base_models&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">name</span> <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">base_models</span><span class="p">])</span>
+        <span class="n">log_param</span><span class="p">(</span><span class="s2">&quot;meta_model&quot;</span><span class="p">,</span> <span class="s2">&quot;RidgeClassifier&quot;</span><span class="p">)</span>
+        <span class="n">log_metric</span><span class="p">(</span><span class="s2">&quot;accuracy&quot;</span><span class="p">,</span> <span class="n">acc</span><span class="p">)</span>
+        <span class="n">log_metric</span><span class="p">(</span><span class="s2">&quot;f1_score&quot;</span><span class="p">,</span> <span class="n">f1</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">log_metrics</span><span class="p">({</span><span class="s2">&quot;accuracy&quot;</span><span class="p">:</span> <span class="n">acc</span><span class="p">,</span> <span class="s2">&quot;f1_score&quot;</span><span class="p">:</span> <span class="n">f1</span><span class="p">})</span>
+
+        <span class="c1"># Log PCA variance</span>
+        <span class="n">explained_variance</span> <span class="o">=</span> <span class="n">preprocessing</span><span class="o">.</span><span class="n">named_steps</span><span class="p">[</span><span class="s2">&quot;pca&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">explained_variance_ratio_</span>
+        <span class="n">mlflow</span><span class="o">.</span><span class="n">log_param</span><span class="p">(</span><span class="s2">&quot;explained_variance&quot;</span><span class="p">,</span> <span class="n">explained_variance</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
+
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Stacking Model: Accuracy = </span><span class="si">{</span><span class="n">acc</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">, F1 Score = </span><span class="si">{</span><span class="n">f1</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Stacking Model: Accuracy = 0.3140, F1 Score = 0.3089
+🏃 View run Custom_Stacked_Experiment at: https://dagshub.com/sreenathreddy6633/price-detection.mlflow/#/experiments/14/runs/7be1325b0af74ba3a66d6939f02f36e5
+🧪 View experiment at: https://dagshub.com/sreenathreddy6633/price-detection.mlflow/#/experiments/14
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>geneticalgorithm
+<span class="kn">from</span> <span class="nn">geneticalgorithm</span> <span class="kn">import</span> <span class="n">geneticalgorithm</span> <span class="k">as</span> <span class="n">ga</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">accuracy_score</span><span class="p">,</span> <span class="n">f1_score</span>
+<span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestClassifier</span><span class="p">,</span> <span class="n">StackingClassifier</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
+<span class="kn">from</span> <span class="nn">xgboost</span> <span class="kn">import</span> <span class="n">XGBClassifier</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">mlflow</span>
+<span class="kn">from</span> <span class="nn">dagshub</span> <span class="kn">import</span> <span class="n">dagshub_logger</span>
+
+
+
+<span class="c1"># Feature selection using Genetic Algorithm</span>
+<span class="k">def</span> <span class="nf">fitness_function</span><span class="p">(</span><span class="n">features</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Fitness function to evaluate model performance for a given feature subset.&quot;&quot;&quot;</span>
+    <span class="n">selected_features</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">features</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># Indices of selected features</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">selected_features</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>  <span class="c1"># Avoid models with no features</span>
+        <span class="k">return</span> <span class="mi">1</span>  <span class="c1"># High fitness value means bad performance</span>
+    
+    <span class="c1"># Train-test split on selected features</span>
+    <span class="n">X_train_subset</span> <span class="o">=</span> <span class="n">X_train</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="n">selected_features</span><span class="p">]</span>
+    <span class="n">X_test_subset</span> <span class="o">=</span> <span class="n">X_test</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="n">selected_features</span><span class="p">]</span>
+
+    <span class="c1"># Train a simple model (e.g., Random Forest)</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_subset</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+    <span class="n">y_pred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test_subset</span><span class="p">)</span>
+
+    <span class="c1"># Use 1 - accuracy as the fitness value (lower is better)</span>
+    <span class="n">accuracy</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+    <span class="k">return</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">accuracy</span>
+
+<span class="c1"># Define Genetic Algorithm parameters</span>
+<span class="n">num_features</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">algorithm</span> <span class="o">=</span> <span class="n">ga</span><span class="p">(</span>
+    <span class="n">function</span><span class="o">=</span><span class="n">fitness_function</span><span class="p">,</span>
+    <span class="n">dimension</span><span class="o">=</span><span class="n">num_features</span><span class="p">,</span>
+    <span class="n">variable_type</span><span class="o">=</span><span class="s2">&quot;bool&quot;</span><span class="p">,</span>  <span class="c1"># Binary selection (0 = exclude, 1 = include)</span>
+    <span class="n">algorithm_parameters</span><span class="o">=</span><span class="p">{</span>
+        <span class="s2">&quot;max_num_iteration&quot;</span><span class="p">:</span> <span class="mi">50</span><span class="p">,</span>
+        <span class="s2">&quot;population_size&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
+        <span class="s2">&quot;mutation_probability&quot;</span><span class="p">:</span> <span class="mf">0.1</span><span class="p">,</span>
+        <span class="s2">&quot;elit_ratio&quot;</span><span class="p">:</span> <span class="mf">0.01</span><span class="p">,</span>
+        <span class="s2">&quot;crossover_probability&quot;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span>
+        <span class="s2">&quot;parents_portion&quot;</span><span class="p">:</span> <span class="mf">0.3</span><span class="p">,</span>
+        <span class="s2">&quot;crossover_type&quot;</span><span class="p">:</span> <span class="s2">&quot;uniform&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;max_iteration_without_improv&quot;</span><span class="p">:</span> <span class="kc">None</span>
+    <span class="p">}</span>
+<span class="p">)</span>
+
+<span class="c1"># Run Genetic Algorithm for feature selection</span>
+<span class="n">algorithm</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+<span class="n">selected_features</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">algorithm</span><span class="o">.</span><span class="n">output_dict</span><span class="p">[</span><span class="s2">&quot;variable&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="c1"># Use selected features for stacking model</span>
+<span class="n">X_train_selected</span> <span class="o">=</span> <span class="n">X_train</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="n">selected_features</span><span class="p">]</span>
+<span class="n">X_test_selected</span> <span class="o">=</span> <span class="n">X_test</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="n">selected_features</span><span class="p">]</span>
+
+
+<span class="c1"># Define Stacking Classifier</span>
+<span class="n">base_models</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="s2">&quot;lr&quot;</span><span class="p">,</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)),</span>
+    <span class="p">(</span><span class="s2">&quot;rf&quot;</span><span class="p">,</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">))</span>
+<span class="p">]</span>
+<span class="n">meta_model</span> <span class="o">=</span> <span class="n">XGBClassifier</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">stacking_model</span> <span class="o">=</span> <span class="n">StackingClassifier</span><span class="p">(</span>
+    <span class="n">estimators</span><span class="o">=</span><span class="n">base_models</span><span class="p">,</span>
+    <span class="n">final_estimator</span><span class="o">=</span><span class="n">meta_model</span><span class="p">,</span>
+    <span class="n">stack_method</span><span class="o">=</span><span class="s2">&quot;predict_proba&quot;</span><span class="p">,</span>
+    <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span>
+<span class="p">)</span>
+
+<span class="c1"># Train Stacking Classifier on selected features</span>
+<span class="n">stacking_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_selected</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">stacking_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test_selected</span><span class="p">)</span>
+
+<span class="c1"># Evaluate metrics</span>
+<span class="n">accuracy</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+<span class="n">f1</span> <span class="o">=</span> <span class="n">f1_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="s2">&quot;weighted&quot;</span><span class="p">)</span>
+
+<span class="c1"># Log results in MLFlow</span>
+<span class="n">mlflow</span><span class="o">.</span><span class="n">set_tracking_uri</span><span class="p">(</span><span class="s2">&quot;https://dagshub.com/sreenathreddy6633/price-detection.mlflow&quot;</span><span class="p">)</span>  <span class="c1"># Replace with your DagsHub repo</span>
+<span class="n">mlflow</span><span class="o">.</span><span class="n">set_experiment</span><span class="p">(</span><span class="s2">&quot;Experiment_7&quot;</span><span class="p">)</span>
+
+<span class="k">with</span> <span class="n">dagshub_logger</span><span class="p">()</span> <span class="k">as</span> <span class="n">logger</span><span class="p">:</span>
+    <span class="k">with</span> <span class="n">mlflow</span><span class="o">.</span><span class="n">start_run</span><span class="p">(</span><span class="n">run_name</span><span class="o">=</span><span class="s2">&quot;GA_Feature_Selection_Stacking&quot;</span><span class="p">):</span>
+        <span class="c1"># Log selected features</span>
+        <span class="n">mlflow</span><span class="o">.</span><span class="n">log_param</span><span class="p">(</span><span class="s2">&quot;selected_features&quot;</span><span class="p">,</span> <span class="n">X</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="n">selected_features</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
+
+        <span class="c1"># Log metrics</span>
+        <span class="n">mlflow</span><span class="o">.</span><span class="n">log_metric</span><span class="p">(</span><span class="s2">&quot;accuracy&quot;</span><span class="p">,</span> <span class="n">accuracy</span><span class="p">)</span>
+        <span class="n">mlflow</span><span class="o">.</span><span class="n">log_metric</span><span class="p">(</span><span class="s2">&quot;f1_score&quot;</span><span class="p">,</span> <span class="n">f1</span><span class="p">)</span>
+
+        <span class="n">logger</span><span class="o">.</span><span class="n">log_metrics</span><span class="p">({</span><span class="s2">&quot;accuracy&quot;</span><span class="p">:</span> <span class="n">accuracy</span><span class="p">,</span> <span class="s2">&quot;f1_score&quot;</span><span class="p">:</span> <span class="n">f1</span><span class="p">})</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Experiment logged in MLFlow.&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Accuracy: </span><span class="si">{</span><span class="n">accuracy</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">, F1 Score: </span><span class="si">{</span><span class="n">f1</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: geneticalgorithm in /opt/anaconda3/lib/python3.12/site-packages (1.0.2)
+Requirement already satisfied: func-timeout in /opt/anaconda3/lib/python3.12/site-packages (from geneticalgorithm) (4.3.5)
+Requirement already satisfied: numpy in /opt/anaconda3/lib/python3.12/site-packages (from geneticalgorithm) (1.26.4)
+||||||||||||||||||||||||||||||||||||______________ 72.0% GA is running...[CV 7/10] END classifier__C=0.1, classifier__penalty=l2; f1: (train=0.753, test=0.740) total time=   0.0s
+[CV 2/10] END classifier__C=1, classifier__penalty=l2; f1: (train=0.910, test=0.878) total time=   0.0s
+[CV 7/10] END classifier__C=1, classifier__penalty=l2; f1: (train=0.904, test=0.863) total time=   0.0s
+[CV 7/10] END classifier__C=10, classifier__penalty=l2; f1: (train=0.961, test=0.950) total time=   0.0s
+[CV 2/10] END classifier__C=0.1, classifier__penalty=l2; f1: (train=0.761, test=0.707) total time=   0.1s
+[CV 4/10] END classifier__C=1, classifier__penalty=l2; f1: (train=0.905, test=0.920) total time=   0.0s
+[CV 2/10] END classifier__C=10, classifier__penalty=l2; f1: (train=0.969, test=0.940) total time=   0.0s
+[CV 9/10] END classifier__C=10, classifier__penalty=l2; f1: (train=0.968, test=0.970) total time=   0.0s
+[CV 1/10] END classifier__C=0.1, classifier__penalty=l2; f1: (train=0.757, test=0.706) total time=   0.0s
+[CV 9/10] END classifier__C=0.1, classifier__penalty=l2; f1: (train=0.753, test=0.795) total time=   0.0s
+[CV 6/10] END classifier__C=1, classifier__penalty=l2; f1: (train=0.905, test=0.903) total time=   0.0s
+[CV 4/10] END classifier__C=10, classifier__penalty=l2; f1: (train=0.962, test=0.955) total time=   0.0s
+ The best solution found:                                                                           
+ [0. 1. 0. 0. 1. 1. 0. 0. 1. 0. 0. 0. 0. 0. 1. 0. 1. 0. 1. 1. 1.]
+
+ Objective function:
+ 0.07999999999999996
+</pre></div>
+</div>
+<img alt="_images/c75d6ada7399b43983aead09e8014dbdb755d012b1327b7b48ac53f76cdf2087.png" src="_images/c75d6ada7399b43983aead09e8014dbdb755d012b1327b7b48ac53f76cdf2087.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/anaconda3/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:469: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/opt/anaconda3/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:469: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/opt/anaconda3/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:469: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/opt/anaconda3/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:469: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/opt/anaconda3/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:469: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+/opt/anaconda3/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:469: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Experiment logged in MLFlow.
+Accuracy: 0.9060, F1 Score: 0.9063
+🏃 View run GA_Feature_Selection_Stacking at: https://dagshub.com/sreenathreddy6633/price-detection.mlflow/#/experiments/15/runs/0767fbf94ad6455aa5d66ddd35c87779
+🧪 View experiment at: https://dagshub.com/sreenathreddy6633/price-detection.mlflow/#/experiments/15
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">mlflow</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># Set the tracking URI for MLFlow (update with your MLFlow server URI if needed)</span>
+<span class="n">mlflow</span><span class="o">.</span><span class="n">set_tracking_uri</span><span class="p">(</span><span class="s2">&quot;https://dagshub.com/sreenathreddy6633/price-detection.mlflow&quot;</span><span class="p">)</span>  <span class="c1"># Replace with your MLFlow tracking server</span>
+
+<span class="c1"># Fetch all experiments</span>
+<span class="n">experiments</span> <span class="o">=</span> <span class="n">mlflow</span><span class="o">.</span><span class="n">search_experiments</span><span class="p">()</span>
+<span class="n">all_f1_scores</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="c1"># Loop through each experiment</span>
+<span class="k">for</span> <span class="n">experiment</span> <span class="ow">in</span> <span class="n">experiments</span><span class="p">:</span>
+    <span class="n">experiment_id</span> <span class="o">=</span> <span class="n">experiment</span><span class="o">.</span><span class="n">experiment_id</span>
+    <span class="n">experiment_name</span> <span class="o">=</span> <span class="n">experiment</span><span class="o">.</span><span class="n">name</span>
+
+    <span class="c1"># Get all runs for the experiment</span>
+    <span class="n">runs</span> <span class="o">=</span> <span class="n">mlflow</span><span class="o">.</span><span class="n">search_runs</span><span class="p">(</span><span class="n">experiment_ids</span><span class="o">=</span><span class="p">[</span><span class="n">experiment_id</span><span class="p">])</span>
+
+    <span class="c1"># Extract F1-scores and corresponding run names</span>
+    <span class="k">if</span> <span class="s2">&quot;metrics.f1_score&quot;</span> <span class="ow">in</span> <span class="n">runs</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+        <span class="n">f1_scores</span> <span class="o">=</span> <span class="n">runs</span><span class="p">[[</span><span class="s2">&quot;run_id&quot;</span><span class="p">,</span> <span class="s2">&quot;metrics.f1_score&quot;</span><span class="p">,</span> <span class="s2">&quot;tags.mlflow.runName&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+        <span class="n">f1_scores</span> <span class="o">=</span> <span class="n">f1_scores</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span>
+            <span class="n">columns</span><span class="o">=</span><span class="p">{</span>
+                <span class="s2">&quot;metrics.f1_score&quot;</span><span class="p">:</span> <span class="s2">&quot;F1-Score&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;tags.mlflow.runName&quot;</span><span class="p">:</span> <span class="s2">&quot;Run Name&quot;</span>
+            <span class="p">}</span>
+        <span class="p">)</span>
+        <span class="n">f1_scores</span><span class="p">[</span><span class="s2">&quot;Experiment&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">experiment_name</span>
+        <span class="n">all_f1_scores</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">f1_scores</span><span class="p">)</span>
+
+<span class="c1"># Combine F1-scores from all experiments</span>
+<span class="k">if</span> <span class="n">all_f1_scores</span><span class="p">:</span>
+    <span class="n">combined_f1_scores</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">all_f1_scores</span><span class="p">,</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;No F1-scores found in any experiments.&quot;</span><span class="p">)</span>
+
+<span class="c1"># Sort by F1-Score for better visualization</span>
+<span class="n">combined_f1_scores</span> <span class="o">=</span> <span class="n">combined_f1_scores</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s2">&quot;F1-Score&quot;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="c1"># Display the F1-scores</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">combined_f1_scores</span><span class="p">)</span>
+
+<span class="c1"># Plot the F1-scores</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">experiment_name</span> <span class="ow">in</span> <span class="n">combined_f1_scores</span><span class="p">[</span><span class="s2">&quot;Experiment&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">():</span>
+    <span class="n">exp_data</span> <span class="o">=</span> <span class="n">combined_f1_scores</span><span class="p">[</span><span class="n">combined_f1_scores</span><span class="p">[</span><span class="s2">&quot;Experiment&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">experiment_name</span><span class="p">]</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="n">exp_data</span><span class="p">[</span><span class="s2">&quot;Run Name&quot;</span><span class="p">],</span> <span class="n">exp_data</span><span class="p">[</span><span class="s2">&quot;F1-Score&quot;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="n">experiment_name</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;F1-Score&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Runs&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Comparison of F1-Scores Across Experiments&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Experiments&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># F1-scores are between 0 and 1</span>
+
+<span class="c1"># Annotate bars with F1-scores</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">score</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">combined_f1_scores</span><span class="p">[</span><span class="s2">&quot;F1-Score&quot;</span><span class="p">]):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">score</span> <span class="o">+</span> <span class="mf">0.01</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">score</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                              run_id  F1-Score                   Run Name  \
+35  910c1a27187342b5bded98d020ffb0f4  0.971902         LogisticRegression   
+27  5fe90ca9b3ec4d1bae4a0452f5147c22  0.971902         LogisticRegression   
+37  3070597db8974ed4b71ad79ac4ccb856  0.971902         LogisticRegression   
+41  67a1696f21d247328066e8a3d1caa54f  0.971902         LogisticRegression   
+31  f50a8b02660f4638938b2373549aa337  0.971902         LogisticRegression   
+..                               ...       ...                        ...   
+14  223aa06b123046a59814d4afe9aa9459  0.473667            RidgeClassifier   
+4   7be1325b0af74ba3a66d6939f02f36e5  0.308895  Custom_Stacked_Experiment   
+5   8dbc174f39ea4687a95382f9910f897c  0.308862  Custom_Stacked_Experiment   
+7   2ea948ed4a9c4ab697c9388da2020eeb  0.290876  Custom_Stacked_Experiment   
+6   4151f4ad7fb04c9ebe325780242e57c8  0.279598  Custom_Stacked_Experiment   
+
+      Experiment  
+35  Experiment_4  
+27  Experiment_4  
+37  Experiment_4  
+41  Experiment_4  
+31  Experiment_4  
+..           ...  
+14  Experiment_5  
+4   Experiment_6  
+5   Experiment_6  
+7   Experiment_6  
+6   Experiment_6  
+
+[86 rows x 4 columns]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/ky/31mx8kz15pl2l2g5yc3h61280000gn/T/ipykernel_3951/3202119120.py:61: UserWarning: Tight layout not applied. The bottom and top margins cannot be made large enough to accommodate all axes decorations.
+  plt.tight_layout()
+</pre></div>
+</div>
+<img alt="_images/590f36c8373842536b61a4dd6eb1809e1e3a8c0cc6e43e2909822d89ebcbf6a1.png" src="_images/590f36c8373842536b61a4dd6eb1809e1e3a8c0cc6e43e2909822d89ebcbf6a1.png" />
+</div>
+</div>
+<li> After final Analysis it is found from above graph that logistic regression was superior in terms of f1 score than any other model used in all instances. </li>
+<li> Logistic Regression model from Experiment 4 gave best results</li><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">joblib</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pipeline</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([</span>
+    <span class="p">(</span><span class="s2">&quot;scaler&quot;</span><span class="p">,</span> <span class="n">StandardScaler</span><span class="p">()),</span>
+    <span class="p">(</span><span class="s2">&quot;model&quot;</span><span class="p">,</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">))</span>
+<span class="p">])</span>
+
+<span class="n">pipeline</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_selected</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="c1"># Save the entire pipeline</span>
+<span class="n">joblib</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">pipeline</span><span class="p">,</span> <span class="s2">&quot;logistic_model.pkl&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;logistic_model.pkl&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_pred</span> <span class="o">=</span> <span class="n">pipeline</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test_selected</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">f1_score</span><span class="p">(</span><span class="n">y_pred</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="s1">&#39;weighted&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9759738372335544
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_test_selected</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>battery_power</th>
+      <th>mobile_wt</th>
+      <th>ram</th>
+      <th>blue</th>
+      <th>fc</th>
+      <th>sc_h</th>
+      <th>px_height</th>
+      <th>px_width</th>
+      <th>n_cores</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1860</th>
+      <td>1646</td>
+      <td>200</td>
+      <td>686</td>
+      <td>0</td>
+      <td>3</td>
+      <td>8</td>
+      <td>211</td>
+      <td>1608</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>353</th>
+      <td>1182</td>
+      <td>138</td>
+      <td>2563</td>
+      <td>0</td>
+      <td>7</td>
+      <td>19</td>
+      <td>275</td>
+      <td>986</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>1333</th>
+      <td>1972</td>
+      <td>196</td>
+      <td>1316</td>
+      <td>0</td>
+      <td>9</td>
+      <td>8</td>
+      <td>293</td>
+      <td>952</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>905</th>
+      <td>989</td>
+      <td>166</td>
+      <td>3892</td>
+      <td>1</td>
+      <td>4</td>
+      <td>18</td>
+      <td>256</td>
+      <td>1394</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>1289</th>
+      <td>615</td>
+      <td>130</td>
+      <td>1906</td>
+      <td>1</td>
+      <td>7</td>
+      <td>14</td>
+      <td>1021</td>
+      <td>1958</td>
+      <td>5</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "py311_env"
+        },
+        kernelOptions: {
+            name: "py311_env",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'py311_env'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="mobileprice.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">&lt;no title&gt;</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Mobile Price Range Prediction</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#experiment-5">Experiment 5</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,646 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Resume &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'resume';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Mobile Price Prediction" href="mobileprice.html" />
+    <link rel="prev" title="Welcome to my Jupyter Book" href="intro.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="My sample book - Home"/>
+    <img src="_static/logo.png" class="logo__image only-dark pst-js-only" alt="My sample book - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to my Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Resume</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mobileprice.html">Mobile Price Prediction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="projectpython1.html">Mobile Price Range Prediction</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="resources.html">Resources</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fresume.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/resume.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Resume</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pidapa-sreenath-reddy">Pidapa Sreenath Reddy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#skills">Skills</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#education">Education</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experience">Experience</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analyst-factory-forward-bangalore-jan-24-jul-24">Analyst, Factory Forward, Bangalore (Jan’24 – Jul’24)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#projects">Projects</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-accuracy-for-diabetes-aug23-apr24">Finding Accuracy for Diabetes (Aug’23 – Apr’24)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#expense-tracker-aug22-dec22">Expense Tracker (Aug’22 – Dec’22)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#virtual-banking-aug21-dec21">Virtual Banking (Aug’21 – Dec’21)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cream-stone-ice-creams-aug20-nov20">Cream Stone Ice Creams (Aug’20 – Nov’20)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#courses-certifications">Courses &amp; Certifications</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#seminars-conferences">Seminars &amp; Conferences</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#technical-skills">Technical Skills</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extracurricular-activities">Extracurricular Activities</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="resume">
+<h1>Resume<a class="headerlink" href="#resume" title="Link to this heading">#</a></h1>
+<section id="pidapa-sreenath-reddy">
+<h2>Pidapa Sreenath Reddy<a class="headerlink" href="#pidapa-sreenath-reddy" title="Link to this heading">#</a></h2>
+<p><strong>Phone</strong>: +1 7167506667<br />
+<strong>Email</strong>: <a class="reference external" href="mailto:sreenathreddypidapa&#37;&#52;&#48;gamil&#46;com">sreenathreddypidapa<span>&#64;</span>gamil<span>&#46;</span>com</a><br />
+<strong>LinkedIn</strong>: <a class="reference internal" href="#"><span class="xref myst">LinkedIn Profile</span></a></p>
+</section>
+<hr class="docutils" />
+<section id="skills">
+<h2>Skills<a class="headerlink" href="#skills" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Data Science</strong></p></li>
+<li><p><strong>Machine Learning</strong></p></li>
+<li><p><strong>Deep Learning</strong></p></li>
+<li><p><strong>Python, SQL, Docker, FastAPI, Streamlit</strong></p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="education">
+<h2>Education<a class="headerlink" href="#education" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Master of Science in Data Science</strong>, University at Buffalo, Buffalo, NY (Aug’24)</p></li>
+<li><p><strong>Bachelor of Engineering in Computer Science and Engineering</strong>, New Horizon College of Engineering, Bangalore (Jul’20 – May’24)</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="experience">
+<h2>Experience<a class="headerlink" href="#experience" title="Link to this heading">#</a></h2>
+<section id="analyst-factory-forward-bangalore-jan-24-jul-24">
+<h3>Analyst, Factory Forward, Bangalore (Jan’24 – Jul’24)<a class="headerlink" href="#analyst-factory-forward-bangalore-jan-24-jul-24" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Collected diverse data using Raspberry Pi, including environmental, motion, audio, image, and network data for machine learning applications.</p></li>
+<li><p>Implemented machine learning models to analyze data, enabling predictions, anomaly detection, and pattern recognition.</p></li>
+<li><p>Contributed to projects in smart home automation, predictive maintenance, and real-time monitoring during my internship as a Machine Learning and Automation Engineer.</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="projects">
+<h2>Projects<a class="headerlink" href="#projects" title="Link to this heading">#</a></h2>
+<section id="finding-accuracy-for-diabetes-aug23-apr24">
+<h3>Finding Accuracy for Diabetes (Aug’23 – Apr’24)<a class="headerlink" href="#finding-accuracy-for-diabetes-aug23-apr24" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Team Size</strong>: 1</p></li>
+<li><p>Utilized Python and Random Forest algorithms within a Visual Studio environment to predict diabetes levels.</p></li>
+<li><p>Focused on accuracy in determining patient diabetes levels, visualizing results through graphical representations like pie charts and heatmap matrices.</p></li>
+</ul>
+</section>
+<section id="expense-tracker-aug22-dec22">
+<h3>Expense Tracker (Aug’22 – Dec’22)<a class="headerlink" href="#expense-tracker-aug22-dec22" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Team Size</strong>: 1</p></li>
+<li><p>Developed an Expense Tracker using HTML, CSS, JavaScript, and PHP.</p></li>
+<li><p>Provided a web-based platform for users to monitor and analyze their daily expenses, offering insights into spending habits.</p></li>
+</ul>
+</section>
+<section id="virtual-banking-aug21-dec21">
+<h3>Virtual Banking (Aug’21 – Dec’21)<a class="headerlink" href="#virtual-banking-aug21-dec21" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Team Size</strong>: 1</p></li>
+<li><p>Created a virtual banking platform using Java and OOP principles within a Visual Studio environment.</p></li>
+<li><p>Ensured a structured and maintainable codebase for secure and efficient financial management.</p></li>
+</ul>
+</section>
+<section id="cream-stone-ice-creams-aug20-nov20">
+<h3>Cream Stone Ice Creams (Aug’20 – Nov’20)<a class="headerlink" href="#cream-stone-ice-creams-aug20-nov20" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Team Size</strong>: 1</p></li>
+<li><p>Developed the “Cream Stone Ice Creams” Android app using Android Studio.</p></li>
+<li><p>Integrated Firebase for data storage and real-time updates, enhancing user experience with seamless interactions.</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="courses-certifications">
+<h2>Courses &amp; Certifications<a class="headerlink" href="#courses-certifications" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Completed ‘Cloud Computing’ course conducted by NPTEL, 2023.</p></li>
+<li><p>Completed ‘Computational Intelligence’ course conducted by NPTEL, 2022.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="seminars-conferences">
+<h2>Seminars &amp; Conferences<a class="headerlink" href="#seminars-conferences" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Delivered a seminar on ‘Finding Accuracy for Diabetes’ at the Hackathon held at NHCE, Nov’23.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="technical-skills">
+<h2>Technical Skills<a class="headerlink" href="#technical-skills" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Languages</strong>: C, Python, Java</p></li>
+<li><p><strong>Web Technologies</strong>: HTML5, CSS3, JavaScript</p></li>
+<li><p><strong>Database</strong>: MySQL</p></li>
+<li><p><strong>Operating Systems</strong>: Windows, Linux</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="extracurricular-activities">
+<h2>Extracurricular Activities<a class="headerlink" href="#extracurricular-activities" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Co-organized the Sargam held at NHCE, 2022.</p></li>
+<li><p>Volunteered to organize the College fest ‘Ethnic Day 2024’.</p></li>
+<li><p>Participated in the Web Designing event at New Horizon College of Engineering, May’23.</p></li>
+<li><p>Participated in The Inter-College Cricket Championship, Bangalore, 2021.</p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Welcome to my Jupyter Book</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="mobileprice.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Mobile Price Prediction</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pidapa-sreenath-reddy">Pidapa Sreenath Reddy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#skills">Skills</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#education">Education</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experience">Experience</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analyst-factory-forward-bangalore-jan-24-jul-24">Analyst, Factory Forward, Bangalore (Jan’24 – Jul’24)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#projects">Projects</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-accuracy-for-diabetes-aug23-apr24">Finding Accuracy for Diabetes (Aug’23 – Apr’24)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#expense-tracker-aug22-dec22">Expense Tracker (Aug’22 – Dec’22)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#virtual-banking-aug21-dec21">Virtual Banking (Aug’21 – Dec’21)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cream-stone-ice-creams-aug20-nov20">Cream Stone Ice Creams (Aug’20 – Nov’20)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#courses-certifications">Courses &amp; Certifications</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#seminars-conferences">Seminars &amp; Conferences</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#technical-skills">Technical Skills</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extracurricular-activities">Extracurricular Activities</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
